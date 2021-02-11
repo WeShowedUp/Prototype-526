@@ -578,6 +578,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &687376940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6260257713384364076, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6260257713025205771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &837240696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 492130239237673259, guid: 538776a6310fc6744b3e0bdcdfb84904,
@@ -34992,6 +34998,8 @@ MonoBehaviour:
   BaseMap: {fileID: 840027531}
   DarkTile: {fileID: 11400000, guid: 68391858a594b4f42b30717d29cd97ea, type: 2}
   BlurredTile: {fileID: 11400000, guid: 8eee2aa745c8f2144a30aef76ceded59, type: 2}
+  lightMask: {fileID: 687376940}
+  numberChange: {fileID: 519420028}
 --- !u!4 &1010133929
 Transform:
   m_ObjectHideFlags: 0
@@ -35064,7 +35072,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1754793603
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.99590296, b: 0.7783019, a: 1}
@@ -35235,7 +35243,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 600
 --- !u!222 &1160832266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35830,7 +35838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1153835482}
-  speed: 5
+  speed: 3.5
   maxrange: 3
 --- !u!212 &2031917933
 SpriteRenderer:
@@ -35872,7 +35880,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9d3b82e314e438742ac506045403461c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.13112922, g: 0.060386255, b: 0.21698111, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

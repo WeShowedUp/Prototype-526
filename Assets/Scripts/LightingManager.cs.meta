@@ -3,7 +3,14 @@ guid: c0543bfe7b0928544b481e8982d2fa8a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DarkMap: {instanceID: 0}
+  - BlurredMap: {instanceID: 0}
+  - BaseMap: {instanceID: 0}
+  - DarkTile: {instanceID: 0}
+  - BlurredTile: {instanceID: 0}
+  - lightMask: {fileID: 6260257713384364076, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -40,6 +40,12 @@ public class ChangingNumber : MonoBehaviour
         lightPoints = 0;
     }
 
+    //allows other parts of the code to get the current light point value
+    public float getLightPts()
+    {
+        return lightPoints;
+    }
+
     // ticks the currency display up or down on screen
     private void adjustCurrencyDisplay()
     {
