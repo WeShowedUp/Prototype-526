@@ -21,13 +21,14 @@ public class enemy : MonoBehaviour
     Vector3 down;
     void Start()
     {
-        speed = speedInput;
+        
         RB = this.GetComponent<Rigidbody2D>();
         Origin = transform.position;
         top = transform.position;
         top.y += 5;
         down = transform.position;
         down.y -= 5;
+        speed = speedInput;
     }
 
     // Update is called once per frame

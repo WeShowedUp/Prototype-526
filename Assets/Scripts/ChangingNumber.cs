@@ -67,6 +67,10 @@ public class ChangingNumber : MonoBehaviour
                 if (currNumber <= lightPoints) //erin is assuming this is to account for rounding errors
                     currNumber = lightPoints;
             }
+            if (currNumber <= 0)
+            {
+                currNumber = 0;
+            }
             currency.text = currNumber.ToString("0");
         }
     }
