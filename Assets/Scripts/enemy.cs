@@ -6,7 +6,8 @@ public class enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform player;
-    public float speed = 5.0f; // movement speed of the enemy 
+    public float speedInput = 5.0f; // movement speed of the enemy 
+    float speed;
     public int maxrange = 3; // enemy detection range
     private Rigidbody2D RB;
     private Vector2 movement;
@@ -20,6 +21,7 @@ public class enemy : MonoBehaviour
     Vector3 down;
     void Start()
     {
+        speed = speedInput;
         RB = this.GetComponent<Rigidbody2D>();
         Origin = transform.position;
         top = transform.position;
@@ -69,7 +71,17 @@ public class enemy : MonoBehaviour
             Destroy(gameObject);
            
         }
+        if (collision.tag == "Player")
+        {
+            speed = 0;
+            StartCoroutine(freeze(2.0f));
+        }
 
+    }
+   IEnumerator freeze(float time)
+    {
+        yield return new WaitForSeconds(time);
+        speed = speedInput;
     }
     private void chase(Vector2 direction)
     {
