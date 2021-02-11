@@ -6,6 +6,7 @@ public class PlayerEvent : MonoBehaviour
 {
     private int light_value = 200;
     public GameObject obj;
+    private int enemy_value = -500;
    
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -20,7 +21,7 @@ public class PlayerEvent : MonoBehaviour
         //meeting enemy
         else if (col.gameObject.tag == "enemy")
         {
-            obj.GetComponent<ChangingNumber>().SetToZero();
+            obj.GetComponent<ChangingNumber>().AddToNumber(enemy_value);
         }
     }
     void OnTriggerExit2D(Collider2D col)
