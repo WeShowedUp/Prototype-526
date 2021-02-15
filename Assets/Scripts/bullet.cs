@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-   
-    public Transform player;
-    public GameObject bulletprefab;
-    
     // Start is called before the first frame update
+    public Rigidbody2D rb;
+    public GameObject BULLET;
+    public float speed = 10.0f;
+    public int damage = 10;
+
     void Start()
     {
+        rb.velocity = new Vector2(-speed, 0);
+        Destroy(BULLET, 1.0f);
        
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-      
-            if (Input.GetButtonDown("Fire1"))
-            {
-                shoot();
-               
-            }
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            other.GetComponent<Enemy>().TakeDamage(damage);
+        }
+        Destroy(this.gameObject);  
+    } 
 
-    }
-    void shoot()
-    {
-       Instantiate(bulletprefab, player.position, player.rotation);  
-    }
 }
