@@ -21,7 +21,7 @@ public class ChangingNumber : MonoBehaviour
     private float elapsed;
     private float lightDecay = 60;
 
-
+    public List<GameObject> light_objects = new List<GameObject>();
     public void AddToNumber(int value)
     {
         initial = currNumber;
@@ -49,8 +49,11 @@ public class ChangingNumber : MonoBehaviour
     // ticks the currency display up or down on screen
     private void adjustCurrencyDisplay()
     {
-        
-        if (currNumber != lightPoints)
+        if (lightPoints == STARTING_LIGHT_POINTS)
+        {
+            currency.text = currNumber.ToString("0");
+        }
+        else if (currNumber != lightPoints)
         {
             float diff;
             if (initial < lightPoints)
@@ -86,15 +89,29 @@ public class ChangingNumber : MonoBehaviour
 
     public void Update()
     {
-        //lose light over time
-        elapsed += Time.deltaTime; //adds how much time ahs passed
-        if (elapsed >= timerSpeed)
+        if (lightPoints < 0)
         {
-            elapsed=0f;
-            lightPoints-=lightDecay;
+            Debug.Log(light_objects.Count);
+            for (int i = 0; i < light_objects.Count; i++)
+            {
+                Debug.Log(light_objects[i]);
+                light_objects[i].SetActive(true);
+            }
+            light_objects.Clear();
+
+            Start();
         }
-
-
+        //lose light over time
+        else
+        {
+            elapsed += Time.deltaTime; //adds how much time ahs passed
+            if (elapsed >= timerSpeed)
+            {
+                elapsed=0f;
+                lightPoints-=lightDecay;
+            }
+            
+        }
         adjustCurrencyDisplay();
     }
 }

@@ -14,7 +14,7 @@ public class PlayerEvent : MonoBehaviour
         //picking up light items
         if (col.gameObject.tag == "Item_light")
         {
-
+            obj.GetComponent<ChangingNumber>().light_objects.Add(col.gameObject);
             col.gameObject.SetActive(false);
             obj.GetComponent<ChangingNumber>().AddToNumber(light_value);
         }
