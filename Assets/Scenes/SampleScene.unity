@@ -472,6 +472,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1153835482}
+    - target: {fileID: 7023090229487031136, guid: f260380b1acf33f4a99e89f183a533d9,
+        type: 3}
+      propertyPath: goLeftOrUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7023090229487031137, guid: f260380b1acf33f4a99e89f183a533d9,
         type: 3}
       propertyPath: m_Constraints
