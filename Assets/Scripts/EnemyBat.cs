@@ -12,8 +12,9 @@ public class EnemyBat : Enemy
     private float changeTimer;
     private bool HasLeavedOrigin = false;
     public bool isVertical;// 0: move up or down; 1: move left or right
-
+    public bool goLeftOrUp;// 0: move right or down; 1: move left or up
     private Vector2 moveDirection;
+    private Vector2 InitDirection;
     private Vector3 origin;
     private Rigidbody2D rbody;
     // Start is called before the first frame update
@@ -27,6 +28,8 @@ public class EnemyBat : Enemy
         rbody = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         moveDirection = isVertical ? Vector2.up : Vector2.right;
+        moveDirection = goLeftOrUp ? (-moveDirection) : moveDirection;
+        InitDirection = moveDirection;
         changeTimer = changeDirectionTime;
     }
 
@@ -47,7 +50,7 @@ public class EnemyBat : Enemy
                 if (transform.position == origin)
                 {
                     HasLeavedOrigin = false;
-                    moveDirection = isVertical ? Vector2.up : Vector2.right;
+                    moveDirection = InitDirection;
                     changeTimer = changeDirectionTime;
                 }
             }
