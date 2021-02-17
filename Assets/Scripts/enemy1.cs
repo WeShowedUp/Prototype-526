@@ -1,11 +1,12 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
 public class enemy1 : Enemy
 {
     // Start is called before the first frame update
-    public Transform player;
-    public float speedInput = 5.0f; // movement speed of the enemy 
+    private Transform playerTransform;
+    private Transform player;
+    public float speedInput = 3.0f; // movement speed of the enemy 
     float speed;
     public int maxrange = 3; // enemy detection range
     private Rigidbody2D RB;
@@ -29,6 +30,7 @@ public class enemy1 : Enemy
         down = transform.position;
         down.y -= 5;
         speed = speedInput;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
