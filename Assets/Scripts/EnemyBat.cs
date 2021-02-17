@@ -6,9 +6,10 @@ public class EnemyBat : Enemy
 {
     private Transform playerTransform;
     public float speed = 3f;
+    public float patrolSpeed = 0.5f;
     private float speedInput;
     public float radius = 3f;
-    public float changeDirectionTime = 5f;
+    public float changeDirectionTime = 1f;
     private float changeTimer;
     private bool HasLeavedOrigin = false;
     public bool isVertical;// 0: move up or down; 1: move left or right
@@ -95,7 +96,10 @@ public class EnemyBat : Enemy
             moveDirection *= -1;
             changeTimer = changeDirectionTime;
         }
-        Vector2 position = rbody.position;
-        rbody.MovePosition(position + moveDirection * speed * Time.deltaTime);
+        //Vector2 position = rbody.position;
+        //rbody.MovePosition(position + moveDirection * speed * Time.deltaTime);
+        Vector2 position = transform.position;
+        position += moveDirection * patrolSpeed * Time.deltaTime;
+        transform.position = position;
     }
 }
