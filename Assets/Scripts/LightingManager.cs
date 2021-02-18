@@ -25,6 +25,10 @@ public class LightingManager : MonoBehaviour
         const float MAX_LIGHT_SCALE = .4f; //largest the light mask will be scaled
         const float MIN_LIGHT_SCALE = .1f; //smallest the light mask will be scaled
 
+        //asks the changing number file for the current number of light points
+        lightPoints = numberChange.GetComponent<ChangingNumber>().getLightPts();
+        if (lightPoints <0) {lightPoints=0;} //prevents negative values
+
         //calculate light scale based on number of points
         float lightScaleValue = (lightPoints)*(MAX_LIGHT_SCALE - MIN_LIGHT_SCALE) / MAX_LIGHT_POINTS + MIN_LIGHT_SCALE;
         Vector3 lightScale = new Vector3(lightScaleValue, lightScaleValue, 1);
@@ -37,8 +41,7 @@ public class LightingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //asks the changing number file for the current number of light points
-        lightPoints = numberChange.GetComponent<ChangingNumber>().getLightPts();
+        
 
         //makes the two lighting maps the same size and space as the base map
         DarkMap.origin = BlurredMap.origin = BaseMap.origin;
