@@ -22,12 +22,13 @@ public class LightingManager : MonoBehaviour
     {
         
         const float MAX_LIGHT_POINTS = 700; //lightpoints above this will not affect FOV size
-        const float MAX_LIGHT_SCALE = .4f; //largest the light mask will be scaled
+        const float MAX_LIGHT_SCALE = .3f; //largest the light mask will be scaled
         const float MIN_LIGHT_SCALE = .1f; //smallest the light mask will be scaled
 
         //asks the changing number file for the current number of light points
         lightPoints = numberChange.GetComponent<ChangingNumber>().getLightPts();
         if (lightPoints <0) {lightPoints=0;} //prevents negative values
+        if (lightPoints > MAX_LIGHT_POINTS) {lightPoints=MAX_LIGHT_POINTS;}
 
         //calculate light scale based on number of points
         float lightScaleValue = (lightPoints)*(MAX_LIGHT_SCALE - MIN_LIGHT_SCALE) / MAX_LIGHT_POINTS + MIN_LIGHT_SCALE;
