@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class ChangingNumber : MonoBehaviour
 {
-    
-    public Text currency; //reference to the UI text object
+    public GameObject message;
 
-    private float lightPoints; //the true numerical light value
+    public Text currency; //reference to the UI text object
+   
+    public float lightPoints; //the true numerical light value
     private const float STARTING_LIGHT_POINTS = 600; //HAVE TO CHANGE IN CANVAS TOO number of light points the player starts with
     
     //for the animation
@@ -70,11 +71,17 @@ public class ChangingNumber : MonoBehaviour
             if (currNumber <= 0)
             {
                 currNumber = 0;
+                currency.text = currNumber.ToString("0");
+                showMessage();
+                Time.timeScale = 0;
             }
             currency.text = currNumber.ToString("0");
         }
     }
-
+    void showMessage()
+    {
+        message.SetActive(true);
+    }
     public void Start()
     {
         lightPoints=STARTING_LIGHT_POINTS;
