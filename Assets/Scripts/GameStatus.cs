@@ -8,7 +8,7 @@ public class GameStatus : MonoBehaviour
     public ChangingNumber light;
     void Start()
     {
-        
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class GameStatus : MonoBehaviour
     }
     public void Restart()
     {
-        Time.timeScale = 1;
+        
         Application.LoadLevel(0);
         
     }
