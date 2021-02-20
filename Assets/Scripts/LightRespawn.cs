@@ -8,16 +8,16 @@ public class LightRespawn : MonoBehaviour
     public GameObject lightPrefab;
     public int LightCount = 0;
     public int LightMaxNumber = 1;
-    private float Timer = 20;
+    private float Timer;
    
-    private float TimeReset;
+    public float TimeReset = 5;
 
     void Start()
     {
         LightCount++;
         GameObject instance = GameObject.Instantiate(lightPrefab, transform.position, Quaternion.identity) as GameObject;
         instance.GetComponent<lightEvent>().Respawnpoint = this;
-        TimeReset = Timer;
+        Timer = TimeReset;
     }
 
     // Update is called once per frame
