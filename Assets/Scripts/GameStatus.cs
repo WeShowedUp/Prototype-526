@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class GameStatus : MonoBehaviour
 {
     // Start is called before the first frame update
     public ChangingNumber light;
+    public Text keyNumber;
+    public int keyCount = 0;
     void Start()
     {
         Time.timeScale = 1;
@@ -14,7 +16,7 @@ public class GameStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //end();
+        keyNumber.text = keyCount.ToString();
     }
     public void Restart()
     {
@@ -29,4 +31,5 @@ public class GameStatus : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+    
 }
