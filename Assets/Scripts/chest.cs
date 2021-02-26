@@ -1,0 +1,76 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class chest : MonoBehaviour
+{
+    //where to get data for number of keys
+    [SerializeField]
+    private GameStatus status;
+
+    //where to update the dash mechanic
+    [SerializeField]
+    private PlayerController controls;
+
+    //popup messages for chest
+    [SerializeField]
+    private GameObject locked;
+    [SerializeField]
+    private GameObject opened;
+    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //when the player goes near the chest
+        if (collision.tag == "Player")
+        {
+            //check for number of keys
+            //open
+            if (status.keyCount==3)
+            {
+                //say good job
+                opened.SetActive(true);
+
+                //stop timer and reset light points
+
+                //reset keys to 0
+                status.keyCount=0;
+
+                //award dash
+                controls.powerGain++;
+
+                //spawn new keys and chest
+
+                //spawn new enemies
+            }
+            //dont open, say to get more keys
+            else
+            {
+                //should put up a message saying to get more keys
+                locked.SetActive(true);
+            }
+        }
+
+    }
+    
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        //when the olayer walks away from the chest the messages disapear
+        if (collision.tag =="Player")
+        {
+            opened.SetActive(false);
+            locked.SetActive(false);
+        }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
