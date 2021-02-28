@@ -6,12 +6,7 @@ using UnityEngine;
 public class KeyEvent : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameStatus key;
-
-    void Start()
-    {
-        key = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
-    }
+    public GameStatus key;
   
     private void OnTriggerEnter2D(Collider2D collision)
     {
