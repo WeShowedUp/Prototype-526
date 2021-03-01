@@ -12,7 +12,7 @@ public class KeySpawner : MonoBehaviour
         SpawnObjectAtRandom();
     }
 
-    void SpawnObjectAtRandom()
+    public void SpawnObjectAtRandom()
     {
         //set position limit to the size of the map
         Vector3 randompos;

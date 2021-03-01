@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
         SpawnEnemyAtRandom();
     }
 
-    void SpawnEnemyAtRandom()
+    public void SpawnEnemyAtRandom()
     {
         Vector3 randompos;
 

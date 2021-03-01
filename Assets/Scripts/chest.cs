@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +18,12 @@ public class chest : MonoBehaviour
     private GameObject locked;
     [SerializeField]
     private GameObject opened;
+
+    //where to spawn object from
+    [SerializeField]
+    private KeySpawner keyspawn;
+    [SerializeField]
+    private EnemySpawner enemyspawn;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,9 +46,12 @@ public class chest : MonoBehaviour
                 controls.powerGain++;
 
                 //spawn new keys and chest
+                keyspawn.SpawnObjectAtRandom();
 
                 //spawn new enemies
+                enemyspawn.SpawnEnemyAtRandom();
             }
+            
             //dont open, say to get more keys
             else
             {
