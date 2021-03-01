@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomSpawner : MonoBehaviour
+public class KeySpawner : MonoBehaviour
 {
     public GameObject key;
     public GameObject box;
@@ -27,6 +27,5 @@ public class RandomSpawner : MonoBehaviour
         //spawn box
         randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
         Instantiate(box, randompos, Quaternion.identity);
-
     }
 }
