@@ -18,9 +18,9 @@ public class ChangingNumber : MonoBehaviour
     private float initial; //goal number is what display is changing to, intial is the start
 
     //for the timer
-    private float timerSpeed = 0.9f;
+    private float timerSpeed = 1f;
     private float elapsed;
-    private float lightDecay = 60;
+    private float lightDecay = 45;
 
 
     public void AddToNumber(int value)

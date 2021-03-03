@@ -37,13 +37,12 @@ public class chest : MonoBehaviour
                 //say good job
                 opened.SetActive(true);
 
-                //stop timer and reset light points
-
-                //reset keys to 0
-                status.keyCount=0;
+                
 
                 //award dash
                 controls.powerGain++;
+
+                //give any currencny rewards here
 
                 //spawn new keys and chest
                 keyspawn.SpawnObjectAtRandom();
@@ -69,6 +68,19 @@ public class chest : MonoBehaviour
         {
             opened.SetActive(false);
             locked.SetActive(false);
+
+            if (status.keyCount==3){
+
+                //reset keys to 0
+                status.keyCount=0;
+
+                // destroy old chest
+                Destroy(this.gameObject);
+
+                //remove good job
+                opened.SetActive(false);
+
+            }
         }
     }
     // Start is called before the first frame update

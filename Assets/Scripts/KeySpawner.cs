@@ -25,7 +25,9 @@ public class KeySpawner : MonoBehaviour
         }
 
         //spawn box
+        GameObject chest;
         randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
-        Instantiate(box, randompos, Quaternion.identity);
+        chest = Instantiate(box, randompos, Quaternion.identity);
+        chest.SetActive(true);
     }
 }

@@ -7,7 +7,7 @@ public class PlayerEvent : MonoBehaviour
    
     public GameObject obj;
     private int light_value = 200;
-    private int enemy_value = -500;
+    private int enemy_value = -300;
    
     void OnTriggerEnter2D(Collider2D col)
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBat : Enemy
 {
     private Transform playerTransform;
-    public float speed = 3f;
+    public float speed = 2.5f;
     public float patrolSpeed = 0.5f;
     private float speedInput;
     public float radius = 3f;

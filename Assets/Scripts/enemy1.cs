@@ -6,7 +6,7 @@ public class enemy1 : Enemy
     // Start is called before the first frame update
     private Transform playerTransform;
     private Transform player;
-    public float speedInput = 3.0f; // movement speed of the enemy 
+    public float speedInput = 2.5f; // movement speed of the enemy 
     float speed;
     public int maxrange = 3; // enemy detection range
     private Rigidbody2D RB;
