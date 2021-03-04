@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class EnemyBat : Enemy
 {
@@ -71,6 +72,7 @@ public class EnemyBat : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
+            Analytics.CustomEvent("Guarding Enemy");
             StartCoroutine(freeze(2.0f));
         }
 

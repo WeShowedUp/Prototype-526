@@ -20,7 +20,7 @@ public class ChangingNumber : MonoBehaviour
     //for the timer
     private float timerSpeed = 1f;
     private float elapsed;
-    private float lightDecay = 45;
+    private float lightDecay = 50;
 
 
     public void AddToNumber(int value)

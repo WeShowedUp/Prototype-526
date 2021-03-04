@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Analytics;
+
 
 public class enemy1 : Enemy
 {
@@ -78,6 +80,7 @@ public class enemy1 : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
+            Analytics.CustomEvent("Patrolling Enemy");
             StartCoroutine(freeze(2.0f));
         }
 
