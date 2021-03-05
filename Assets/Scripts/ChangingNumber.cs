@@ -46,7 +46,17 @@ public class ChangingNumber : MonoBehaviour
     {
         return lightPoints;
     }
+    
+    //functions for powerups
+    public void SetLightDecay(float value)
+    {
+        lightDecay = value;
+    }
 
+    public float GetLightDecay()
+    {
+        return lightDecay;
+    }
     // ticks the currency display up or down on screen
     private void adjustCurrencyDisplay()
     {
