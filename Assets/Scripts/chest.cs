@@ -43,6 +43,7 @@ public class chest : MonoBehaviour
                 controls.powerGain++;
 
                 //give any currencny rewards here
+                status.coinCount += 3;
 
                 //spawn new keys and chest
                 keyspawn.SpawnObjectAtRandom();
