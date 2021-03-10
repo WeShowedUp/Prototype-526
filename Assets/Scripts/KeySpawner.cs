@@ -6,6 +6,7 @@ public class KeySpawner : MonoBehaviour
 {
     public GameObject key;
     public GameObject box;
+    public GameObject star;
 
     void Start()
     {
@@ -29,5 +30,9 @@ public class KeySpawner : MonoBehaviour
         randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
         chest = Instantiate(box, randompos, Quaternion.identity);
         chest.SetActive(true);
+
+        //spawn a star
+        randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
+        Instantiate(star, randompos, Quaternion.identity);
     }
 }

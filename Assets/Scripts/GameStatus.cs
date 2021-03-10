@@ -8,6 +8,8 @@ public class GameStatus : MonoBehaviour
     public ChangingNumber light;
     public Text keyNumber;
     public int keyCount = 0;
+    public Text coinNumber;
+    public int coinCount = 0;
     void Start()
     {
         Time.timeScale = 1;
@@ -17,6 +19,7 @@ public class GameStatus : MonoBehaviour
     void Update()
     {
         keyNumber.text = keyCount.ToString();
+        coinNumber.text = coinCount.ToString();
     }
     public void Restart()
     {
