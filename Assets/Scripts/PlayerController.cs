@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     const float DASH_COOLDOWN_MAX = 2f;
+    const float PAUSE_COOLDOWN_MAX = 10f;
+    
     private Rigidbody2D myRB;
 
     // dash mechanics
@@ -12,9 +15,14 @@ public class PlayerController : MonoBehaviour
     public float dashAmount = 3;
     
     public float dashCooldown;
+    public float pauseCooldown = 0;
+
     public Vector3 lastMove;
 
     private bool isDash;
+    private bool isAbility;
+
+    public Text inventory;
 
 
     [SerializeField]
@@ -26,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         //powerGain=0;
+        
 
     }
 
@@ -67,7 +76,16 @@ public class PlayerController : MonoBehaviour
                 isDash = true;
             }
 
+            if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown < 0)
+            {
+                isAbility = true;
+                int left = int.Parse(inventory.text) - 1;
+                inventory.text = left.ToString();
+            }
+
+
             dashCooldown -= Time.deltaTime;
+            pauseCooldown -= Time.deltaTime;
 
         }
         
@@ -90,7 +108,16 @@ public class PlayerController : MonoBehaviour
                 isDash = false;
                 
             }
-            
+            if (isAbility)
+            {
+                if(pauseCooldown < 0)
+                {
+                    pauseCooldown = PAUSE_COOLDOWN_MAX;
+                
+                    GetComponent<PlayerEvent>().PowerPauseTimer();
+                    isAbility = false;
+                }
+            }
         }
         
     }

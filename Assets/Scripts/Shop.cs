@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     public GameObject shop;
+    public GameObject warning;
     public void OpenShop()
     {
         Time.timeScale = 0;
@@ -14,5 +15,6 @@ public class Shop : MonoBehaviour
     {
         Time.timeScale = 1;
         shop.SetActive(false);
+        warning.SetActive(false);
     }
 }

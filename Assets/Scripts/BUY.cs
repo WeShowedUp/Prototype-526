@@ -8,19 +8,30 @@ public class BUY : MonoBehaviour
     public int freezebombCount;
     public Text freezebombText;
     public Text CoinText;
+    public GameObject warning;
     
     
    
     public void BUYACTION()
     {
-        if (coin.coinCount >= 3)
+        if (int.Parse(freezebombText.text) == 5)
         {
-            coin.coinCount -= 3;
-            freezebombCount++;
+            warning.SetActive(true);
+        }
+        else
+        {
+            if (coin.coinCount >= 3)
+            {
+                coin.coinCount -= 3;
+                freezebombCount++;
+            }
+
+            freezebombText.text = freezebombCount.ToString();
+            CoinText.text = coin.coinCount.ToString();
         }
         
-        freezebombText.text = freezebombCount.ToString();
-        CoinText.text = coin.coinCount.ToString();
+
+        
     }
 
 }
