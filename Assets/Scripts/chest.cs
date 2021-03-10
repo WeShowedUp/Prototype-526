@@ -24,7 +24,13 @@ public class chest : MonoBehaviour
     private KeySpawner keyspawn;
     [SerializeField]
     private EnemySpawner enemyspawn;
-    
+    public Shop shop;
+    void Start()
+    {
+
+        status.coinCount += 3;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         //when the player goes near the chest
@@ -75,6 +81,7 @@ public class chest : MonoBehaviour
                 //reset keys to 0
                 status.keyCount=0;
 
+                shop.OpenShop();
                 // destroy old chest
                 Destroy(this.gameObject);
 
@@ -85,14 +92,5 @@ public class chest : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
