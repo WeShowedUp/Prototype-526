@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class chest : MonoBehaviour
 {
-    //where to get data for number of keys
+    //where to get data for number of keys and level
     [SerializeField]
     private GameStatus status;
 
@@ -25,11 +26,20 @@ public class chest : MonoBehaviour
     [SerializeField]
     private EnemySpawner enemyspawn;
     public Shop shop;
+
+    
+    private int coinsAwarded;
+
+  
+
     void Start()
     {
-
-        status.coinCount += 3;
+        coinsAwarded=3;
+        //status.coinCount += 3;
+        status.levelStartTimer=Time.time; //reset level timer
     }
+
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,7 +59,33 @@ public class chest : MonoBehaviour
                 controls.powerGain++;
 
                 //give any currencny rewards here
-                status.coinCount += 3;
+                status.coinCount += coinsAwarded;
+                for (int i=0; i<coinsAwarded; i++){
+                    
+                    Analytics.CustomEvent("Get Coins", 
+                        new Dictionary<string, object> { 
+                            {"Level", status.getLevel()},
+                            {"Type", "Level Win"}
+                         }
+                    );
+                }
+
+
+                //level win
+                status.levelWin();
+                Analytics.CustomEvent("LevelWin", new Dictionary<string, object> { {"Level", status.getLevel()}});
+
+                //time on level
+                Analytics.CustomEvent("Level End", 
+                    new Dictionary<string, object> { 
+                        {"Level", status.getLevel()},
+                        {"Type", "Win"},
+                        {"Time", Time.time-status.levelStartTimer}
+                    }
+                );
+
+                //open shop
+                shop.OpenShop();
 
                 //spawn new keys and chest
                 keyspawn.SpawnObjectAtRandom();
@@ -81,7 +117,7 @@ public class chest : MonoBehaviour
                 //reset keys to 0
                 status.keyCount=0;
 
-                shop.OpenShop();
+                
                 // destroy old chest
                 Destroy(this.gameObject);
 
@@ -94,3 +130,4 @@ public class chest : MonoBehaviour
     // Start is called before the first frame update
    
 }
+

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
+
 public class BUY : MonoBehaviour
 {
     public GameStatus coin;
@@ -10,7 +12,9 @@ public class BUY : MonoBehaviour
     public Text CoinText;
     public GameObject warning;
     
-    
+    private int itemCost=3;
+
+    private GameStatus gamestatus;
    
     public void BUYACTION()
     {
@@ -20,9 +24,32 @@ public class BUY : MonoBehaviour
         }
         else
         {
-            if (coin.coinCount >= 3)
+            if (coin.coinCount >= itemCost)
             {
-                coin.coinCount -= 3;
+                coin.coinCount -= itemCost;
+
+
+                gamestatus = GetComponent<GameStatus>();
+
+                //report coin spending
+                for (int i =0; i<itemCost; i++){
+                    Analytics.CustomEvent("Coins Spent", 
+                        new Dictionary<string, object> { 
+                            {"Level", gamestatus.getLevel()},
+                            {"Type", "Item"}
+                        }
+                    );
+                }
+
+                //report item purchase
+                gamestatus = GetComponent<GameStatus>();
+                Analytics.CustomEvent("Purchase", 
+                    new Dictionary<string, object> { 
+                        {"Level", gamestatus.getLevel()},
+                        {"Item", "Freeze Bomb"}
+                    }
+                );
+
                 freezebombCount++;
             }
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 492130239237673252}
   - component: {fileID: 7103275263239012390}
   - component: {fileID: -2227919254156137646}
-  - component: {fileID: 4045701774499810415}
   m_Layer: 0
   m_Name: Light Object
   m_TagString: Item_light
@@ -114,36 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RP: {fileID: 0}
---- !u!114 &4045701774499810415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492130239237673253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Trigger:
-    m_IsTriggerExpanded: 1
-    m_Type: 0
-    m_LifecycleEvent: 7
-    m_ApplyRules: 0
-    m_Rules:
-      m_Rules: []
-    m_TriggerBool: 0
-    m_InitTime: 5
-    m_RepeatTime: 5
-    m_Repetitions: 0
-    repetitionCount: 0
-  m_EventPayload:
-    m_IsEventExpanded: 1
-    m_StandardEventType: CustomEvent
-    m_Parameters:
-      m_Parameters: []
-    m_Name: Light Collected
 --- !u!1001 &492130238203953932
 PrefabInstance:
   m_ObjectHideFlags: 0

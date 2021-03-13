@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     const float PAUSE_COOLDOWN_MAX = 10f;
     
     private Rigidbody2D myRB;
+
+    private GameStatus gamestatus;
 
     // dash mechanics
     public int powerGain; //the ability level the player has
@@ -103,6 +106,17 @@ public class PlayerController : MonoBehaviour
                 {
                     dashCooldown = DASH_COOLDOWN_MAX;
                     myRB.MovePosition(transform.position + lastMove * dashAmount);
+
+                    //count dashes
+                    gamestatus = GetComponent<GameStatus>();
+                    Analytics.CustomEvent("Dash", 
+                        new Dictionary<string, object> { 
+                            {"Level", gamestatus.getLevel()},
+                           
+                        }
+                    );
+
+                    
                     isDash = false;
                 }
                 isDash = false;
@@ -113,6 +127,15 @@ public class PlayerController : MonoBehaviour
                 if(pauseCooldown < 0)
                 {
                     pauseCooldown = PAUSE_COOLDOWN_MAX;
+
+                    //count item use
+                    gamestatus = GetComponent<GameStatus>();
+                    Analytics.CustomEvent("Item Used", 
+                        new Dictionary<string, object> { 
+                            {"Level", gamestatus.getLevel()},
+                            {"Item", "FreezeBomb"}
+                        }
+                    );
                 
                     GetComponent<PlayerEvent>().PowerPauseTimer();
                     isAbility = false;

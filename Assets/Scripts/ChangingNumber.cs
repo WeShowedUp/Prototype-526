@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class ChangingNumber : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class ChangingNumber : MonoBehaviour
     private float elapsed;
     private float lightDecay = 50;
 
+    private float deathTime;
+
+
+    //for anayltics
+    private GameStatus gamestatus;
 
     public void AddToNumber(int value)
     {
@@ -78,12 +84,46 @@ public class ChangingNumber : MonoBehaviour
                 if (currNumber <= lightPoints) //erin is assuming this is to account for rounding errors
                     currNumber = lightPoints;
             }
+
+            //dieng happens here
             if (currNumber <= 0)
             {
+                gamestatus = GetComponent<GameStatus>();
+                //deathTime= gamestatus.levelStartTimer - Time.time;
+                
+                
                 currNumber = 0;
                 currency.text = currNumber.ToString("0");
+
                 showMessage();
                 Time.timeScale = 0;
+                gamestatus.levelStartTimer=Time.time;
+                
+                
+                
+                Analytics.CustomEvent("Died", 
+                    new Dictionary<string, object> { 
+                        {"Level", gamestatus.getLevel()}
+                        
+                    }
+                );
+
+                /*
+                
+                 //time on level
+                Analytics.CustomEvent("Level End", 
+                    new Dictionary<string, object> { 
+                        {"Level", gamestatus.getLevel()},
+                        {"Type", "Lose"},
+                        {"Time", deathTime}
+                    }
+                );
+
+                */
+                
+                
+               
+
             }
             currency.text = currNumber.ToString("0");
         }
@@ -97,6 +137,7 @@ public class ChangingNumber : MonoBehaviour
         lightPoints=STARTING_LIGHT_POINTS;
         currNumber=STARTING_LIGHT_POINTS;
         initial=STARTING_LIGHT_POINTS;
+        gamestatus = GetComponent<GameStatus>();
 
     }
 

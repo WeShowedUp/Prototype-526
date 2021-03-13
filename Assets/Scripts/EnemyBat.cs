@@ -19,6 +19,8 @@ public class EnemyBat : Enemy
     private Vector2 InitDirection;
     private Vector3 origin;
     private Rigidbody2D rbody;
+
+    private GameStatus gamestatus;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +74,15 @@ public class EnemyBat : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
-            Analytics.CustomEvent("Guarding Enemy");
+           //Analytics.CustomEvent("Guarding Enemy");
+            gamestatus = GetComponent<GameStatus>();
+            Analytics.CustomEvent("Enemy Hit", 
+                new Dictionary<string, object> { 
+                    {"Level", gamestatus.getLevel()},
+                    {"Type", "Guarding"}
+                }
+            );
+
             StartCoroutine(freeze(2.0f));
         }
 
