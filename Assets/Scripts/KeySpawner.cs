@@ -19,7 +19,7 @@ public class KeySpawner : MonoBehaviour
         Vector3 randompos;
 
         //spawn three keys
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
             Instantiate(key, randompos, Quaternion.identity);
