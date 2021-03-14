@@ -42922,7 +42922,7 @@ MonoBehaviour:
   opened: {fileID: 1642925753}
   keyspawn: {fileID: 2089284924}
   enemyspawn: {fileID: 2089284926}
-  shop: {fileID: 0}
+  shop: {fileID: 567363545}
 --- !u!4 &273928762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3721057453546356700, guid: 1bf350b4d7e0f2242bb1c188a9795421,
@@ -43222,7 +43222,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Looks like this chest needs 3 keys to open
+  m_Text: Looks like this chest needs a key to open
 --- !u!222 &297778101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -96578,9 +96578,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How to play:\n\n1. Move with WASD or \u2191\u2193\u2190\u2192\n\n2. Collect
-    yellow lights to keep your light bright\n\n3. Be careful! The purple enemies
-    will attack you and lower your health"
+  m_Text: "How to play:\n\n1. Move with \u2191\u2193\u2190\u2192\n\n2. Collect yellow
+    lights to keep your light bright\n\n3. Be careful! The purple enemies will attack
+    you and lower your health"
 --- !u!222 &1113710108
 CanvasRenderer:
   m_ObjectHideFlags: 0
