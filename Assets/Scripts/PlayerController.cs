@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     const float DASH_COOLDOWN_MAX = 2f;
     const float PAUSE_COOLDOWN_MAX = 10f;
     
+    // how many seconds the timer UI still stays active after the time is up 
+    // set to 0 if you want timer to disappear immediately
+    const float COOLDOWN_DISAPPEAR_MAX = 0f;
+    
     private Rigidbody2D myRB;
 
     private GameStatus gamestatus;
@@ -27,6 +31,12 @@ public class PlayerController : MonoBehaviour
 
     public Text inventory;
 
+    // cooldown timer UI components
+    public Text cooldownText;
+    public Image background;
+    public Image cooldownImage;
+    public Image ring;
+
 
     [SerializeField]
     public float speed = 5;
@@ -37,8 +47,18 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         //powerGain=0;
-        
 
+        enableCooldownTimer(false);        
+
+    }
+
+    // enable or disable cooldown timer UI
+    void enableCooldownTimer(bool cool)
+    {
+        cooldownImage.enabled=cool;
+        background.enabled=cool;
+        ring.enabled=cool;
+        cooldownText.enabled=cool;
     }
 
     // Update is called once per frame
@@ -89,6 +109,23 @@ public class PlayerController : MonoBehaviour
 
             dashCooldown -= Time.deltaTime;
             pauseCooldown -= Time.deltaTime;
+
+
+            // display cooldown countdown timer.
+            if (dashCooldown > 0)
+            {
+                enableCooldownTimer(true);
+                cooldownText.text = Mathf.Ceil(dashCooldown).ToString();
+            }
+            else if (dashCooldown >= -COOLDOWN_DISAPPEAR_MAX)
+            {
+                cooldownText.text = "0";
+            }
+            else
+            {
+                enableCooldownTimer(false);
+            }
+            ring.fillAmount = dashCooldown / DASH_COOLDOWN_MAX;
 
         }
         
