@@ -9,10 +9,6 @@ public class PlayerController : MonoBehaviour
     const float DASH_COOLDOWN_MAX = 2f;
     const float PAUSE_COOLDOWN_MAX = 10f;
     
-    // how many seconds the timer UI still stays active after the time is up 
-    // set to 0 if you want timer to disappear immediately
-    const float COOLDOWN_DISAPPEAR_MAX = 0f;
-    
     private Rigidbody2D myRB;
 
     private GameStatus gamestatus;
@@ -32,11 +28,13 @@ public class PlayerController : MonoBehaviour
     public Text inventory;
     public BUY buy;
 
-    // cooldown timer UI components
-    public Text cooldownText;
-    public Image background;
-    public Image cooldownImage;
-    public Image ring;
+    // dashing cooldown timer UI components
+    public Text dashCooldownText;
+    public Image dashCooldownMask;
+
+    // pause cooldown timer UI components
+    public Text pauseCooldownText;
+    public Image pauseCooldownMask;
 
 
     [SerializeField]
@@ -49,17 +47,23 @@ public class PlayerController : MonoBehaviour
         myRB = GetComponent<Rigidbody2D>();
         //powerGain=0;
 
-        enableCooldownTimer(false);        
+        enableCooldownTimer(false); 
+        enablePauseCooldownTimer(false);       
 
     }
 
-    // enable or disable cooldown timer UI
+    // enable or disable dashing cooldown timer UI
     void enableCooldownTimer(bool cool)
     {
-        cooldownImage.enabled=cool;
-        background.enabled=cool;
-        ring.enabled=cool;
-        cooldownText.enabled=cool;
+        dashCooldownMask.enabled=cool;
+        dashCooldownText.enabled=cool;
+    }
+
+    // enable or disable bombing (pausing) cooldown timer UI
+    void enablePauseCooldownTimer(bool cool)
+    {
+        pauseCooldownText.enabled=cool;
+        pauseCooldownMask.enabled=cool;
     }
 
     // Update is called once per frame
@@ -99,10 +103,10 @@ public class PlayerController : MonoBehaviour
             {
                 isDash = true;
             }
-
             if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown < 0)
             {
                 isAbility = true;
+                
                 int left = int.Parse(inventory.text) - 1;
                 inventory.text = left.ToString();
                 buy.freezebombCount--;
@@ -113,21 +117,30 @@ public class PlayerController : MonoBehaviour
             pauseCooldown -= Time.deltaTime;
 
 
-            // display cooldown countdown timer.
+            // display dash cooldown countdown timer.
             if (dashCooldown > 0)
             {
                 enableCooldownTimer(true);
-                cooldownText.text = Mathf.Ceil(dashCooldown).ToString();
-            }
-            else if (dashCooldown >= -COOLDOWN_DISAPPEAR_MAX)
-            {
-                cooldownText.text = "0";
+                dashCooldownText.text = Mathf.Ceil(dashCooldown).ToString();
             }
             else
             {
                 enableCooldownTimer(false);
             }
-            ring.fillAmount = dashCooldown / DASH_COOLDOWN_MAX;
+            dashCooldownMask.fillAmount = dashCooldown / DASH_COOLDOWN_MAX;
+
+
+            // display bomb (pause) cooldown countdown timer.
+            if (pauseCooldown > 0)
+            {
+                enablePauseCooldownTimer(true);
+                pauseCooldownText.text = Mathf.Ceil(pauseCooldown).ToString();
+            }
+            else
+            {
+                enablePauseCooldownTimer(false);
+            }
+            pauseCooldownMask.fillAmount = pauseCooldown / PAUSE_COOLDOWN_MAX;
 
         }
         
