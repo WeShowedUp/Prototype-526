@@ -96936,6 +96936,7 @@ MonoBehaviour:
   pauseCooldown: 0
   lastMove: {x: 0, y: 0, z: 0}
   inventory: {fileID: 1911883607}
+  buy: {fileID: 567363548}
   cooldownText: {fileID: 449502847}
   background: {fileID: 1739090180}
   cooldownImage: {fileID: 23173162}

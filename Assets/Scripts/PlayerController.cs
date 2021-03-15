@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool isAbility;
 
     public Text inventory;
+    public BUY buy;
 
     // cooldown timer UI components
     public Text cooldownText;
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
                 isAbility = true;
                 int left = int.Parse(inventory.text) - 1;
                 inventory.text = left.ToString();
+                buy.freezebombCount--;
             }
 
 
@@ -166,16 +168,16 @@ public class PlayerController : MonoBehaviour
                     pauseCooldown = PAUSE_COOLDOWN_MAX;
 
                     //count item use
-                    gamestatus = GetComponent<GameStatus>();
+                    gamestatus = GetComponent<GameStatus>();      
+                    GetComponent<PlayerEvent>().PowerPauseTimer();
+                    isAbility = false;
+
                     Analytics.CustomEvent("Item Used", 
                         new Dictionary<string, object> { 
                             {"Level", gamestatus.getLevel()},
                             {"Item", "FreezeBomb"}
                         }
                     );
-                
-                    GetComponent<PlayerEvent>().PowerPauseTimer();
-                    isAbility = false;
                 }
             }
         }
