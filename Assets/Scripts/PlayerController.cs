@@ -6,7 +6,7 @@ using UnityEngine.Analytics;
 
 public class PlayerController : MonoBehaviour
 {
-    const float DASH_COOLDOWN_MAX = 2f;
+    const float DASH_COOLDOWN_MAX = 5f;
     const float PAUSE_COOLDOWN_MAX = 10f;
     
     private Rigidbody2D myRB;
