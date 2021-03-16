@@ -85,6 +85,8 @@ public class enemy1 : Enemy
         {
             speed = 0;
 
+            Analytics.CustomEvent("Patrolling Enemy");
+
             gamestatus = GetComponent<GameStatus>();
             Analytics.CustomEvent("Enemy Hit", 
                 new Dictionary<string, object> { 
@@ -92,7 +94,7 @@ public class enemy1 : Enemy
                     {"Type", "Patrolling"}
                 }
             );
-            //Analytics.CustomEvent("Patrolling Enemy");
+            
             StartCoroutine(freeze(2.0f));
         }
 

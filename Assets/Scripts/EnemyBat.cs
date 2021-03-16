@@ -74,7 +74,7 @@ public class EnemyBat : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
-           //Analytics.CustomEvent("Guarding Enemy");
+           Analytics.CustomEvent("Guarding Enemy");
             gamestatus = GetComponent<GameStatus>();
             Analytics.CustomEvent("Enemy Hit", 
                 new Dictionary<string, object> { 
