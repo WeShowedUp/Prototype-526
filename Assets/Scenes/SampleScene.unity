@@ -44751,7 +44751,7 @@ MonoBehaviour:
   keyNumber: {fileID: 761158149}
   keyCount: 0
   coinNumber: {fileID: 409571767}
-  coinCount: 20
+  coinCount: 0
   gameLevel: 0
   levelStartTimer: 0
 --- !u!114 &567363548
@@ -96589,7 +96589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1097624648
 RectTransform:
   m_ObjectHideFlags: 0
