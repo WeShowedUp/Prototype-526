@@ -95,6 +95,8 @@ public class ChangingNumber : MonoBehaviour
                 currNumber = 0;
                 currency.text = currNumber.ToString("0");
 
+                Analytics.CustomEvent("Died");
+
                 showMessage();
                 Time.timeScale = 0;
                 gamestatus.levelStartTimer=Time.time;

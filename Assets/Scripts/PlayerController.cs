@@ -101,11 +101,15 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Analytics.CustomEvent("Dash");
                 isDash = true;
             }
             if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown < 0)
             {
                 isAbility = true;
+
+                Analytics.CustomEvent("Freeze Bomb");
+                
                 
                 int left = int.Parse(inventory.text) - 1;
                 inventory.text = left.ToString();
