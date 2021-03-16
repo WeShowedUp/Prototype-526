@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 
 public class enemy1 : Enemy
@@ -21,6 +22,9 @@ public class enemy1 : Enemy
     float sum; // the distance between player and enemy
     Vector3 top;
     Vector3 down;
+
+    private GameStatus gamestatus;
+
     void Start()
     {
         health = 1;
@@ -80,7 +84,15 @@ public class enemy1 : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
-            Analytics.CustomEvent("Patrolling Enemy");
+
+            gamestatus = GetComponent<GameStatus>();
+            Analytics.CustomEvent("Enemy Hit", 
+                new Dictionary<string, object> { 
+                    {"Level", gamestatus.getLevel()},
+                    {"Type", "Patrolling"}
+                }
+            );
+            //Analytics.CustomEvent("Patrolling Enemy");
             StartCoroutine(freeze(2.0f));
         }
 

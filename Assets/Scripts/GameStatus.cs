@@ -10,9 +10,15 @@ public class GameStatus : MonoBehaviour
     public int keyCount = 0;
     public Text coinNumber;
     public int coinCount = 0;
+
+    public int gameLevel;
+    public float levelStartTimer;
+
     void Start()
     {
+        gameLevel=0;
         Time.timeScale = 1;
+        levelStartTimer=Time.timeSinceLevelLoad;
     }
 
     // Update is called once per frame
@@ -25,14 +31,25 @@ public class GameStatus : MonoBehaviour
     {
         
         Application.LoadLevel(0);
+        //gameLevel=0;
+        //levelStartTimer=Time.time;
         
     }
     void end()
     {
+        //we might need to reset items and coins here?
+        
         if (light.lightPoints <= 0)
         {
             Time.timeScale = 0;
         }
     }
+
+    public void levelWin(){
+        gameLevel++;
+    }
     
+    public int getLevel(){
+        return gameLevel;
+    }
 }
