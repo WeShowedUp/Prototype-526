@@ -96728,15 +96728,15 @@ RectTransform:
   m_GameObject: {fileID: 1113710105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.284944, y: 2.5009909, z: 2.2512112}
+  m_LocalScale: {x: 7.606818, y: 2.3773372, z: 1.9918357}
   m_Children: []
   m_Father: {fileID: 2021591207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -830, y: 190}
-  m_SizeDelta: {x: 200, y: 190}
+  m_AnchoredPosition: {x: -776, y: 214}
+  m_SizeDelta: {x: 200, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113710107
 MonoBehaviour:
@@ -96770,9 +96770,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "How to play:\n\n1. Move with \u2191\u2193\u2190\u2192\n\n2. Collect yellow
-    lights to keep your light bright\n\n3. Be careful! The purple enemies will attack
-    you and lower your health"
+  m_Text: "How to play:\n\n1. Move with \u2191\u2193\u2190\u2192\n2. Collect yellow
+    lights to keep your light bright\n3. Be careful! The purple enemies will attack
+    you and lower your health\n4. Find the key to open the chest and level up!"
 --- !u!222 &1113710108
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -100464,7 +100464,7 @@ RectTransform:
   m_GameObject: {fileID: 2021591206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15696925, y: 0.5662299, z: 0.4249552}
+  m_LocalScale: {x: 0.15696925, y: 0.57330775, z: 0.4249552}
   m_Children:
   - {fileID: 1113710106}
   m_Father: {fileID: 856261232}
@@ -100472,7 +100472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -180, y: 280}
+  m_AnchoredPosition: {x: -183, y: 318}
   m_SizeDelta: {x: 1600, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021591208
