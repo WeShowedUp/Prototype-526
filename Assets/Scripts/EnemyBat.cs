@@ -19,6 +19,7 @@ public class EnemyBat : Enemy
     private Vector2 InitDirection;
     private Vector3 origin;
     private Rigidbody2D rbody;
+    private Animator anim;
 
     private GameStatus gamestatus;
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class EnemyBat : Enemy
         moveDirection = goLeftOrUp ? (-moveDirection) : moveDirection;
         InitDirection = moveDirection;
         changeTimer = changeDirectionTime;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,9 +50,11 @@ public class EnemyBat : Enemy
             {
                 HasLeavedOrigin = true;
                 Chase();
+                AnimatorSetWhenTowards(playerTransform.position);
             } else if(HasLeavedOrigin && distance >= radius)
             {
                 GoBackToOrigin();
+                AnimatorSetWhenTowards(origin);
                 if (transform.position == origin)
                 {
                     HasLeavedOrigin = false;
@@ -74,14 +78,14 @@ public class EnemyBat : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
-           Analytics.CustomEvent("Guarding Enemy");
-            gamestatus = GetComponent<GameStatus>();
-            Analytics.CustomEvent("Enemy Hit", 
-                new Dictionary<string, object> { 
-                    {"Level", gamestatus.getLevel()},
-                    {"Type", "Guarding"}
-                }
-            );
+            //Analytics.CustomEvent("Guarding Enemy");
+            //gamestatus = GetComponent<GameStatus>();
+            //Analytics.CustomEvent("Enemy Hit",
+            //    new Dictionary<string, object> {
+            //        {"Level", gamestatus.getLevel()},
+            //        {"Type", "Guarding"}
+            //    }
+            //);
 
             StartCoroutine(freeze(2.0f));
         }
@@ -113,5 +117,23 @@ public class EnemyBat : Enemy
         Vector2 position = transform.position;
         position += moveDirection * patrolSpeed * Time.deltaTime;
         transform.position = position;
+        anim.SetFloat("moveX", moveDirection.x);
+        anim.SetFloat("moveY", moveDirection.y);
+    }
+    private void AnimatorSetWhenTowards(Vector2 towards)
+    {
+        float xDiff = transform.position.x - towards.x;
+        float yDiff = transform.position.y - towards.y;
+        if(Mathf.Abs(xDiff) > Mathf.Abs(yDiff))
+        {
+            if (xDiff < 0) anim.SetFloat("moveX", 1);
+            else anim.SetFloat("moveX", -1);
+            anim.SetFloat("moveY", 0);
+        } else
+        {
+            if (yDiff < 0) anim.SetFloat("moveY", 1);
+            else anim.SetFloat("moveY", -1);
+            anim.SetFloat("moveX", 0);
+        }
     }
 }
