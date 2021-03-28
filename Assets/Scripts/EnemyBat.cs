@@ -50,11 +50,11 @@ public class EnemyBat : Enemy
             {
                 HasLeavedOrigin = true;
                 Chase();
-                AnimatorSetWhenTowards(playerTransform.position);
+               // AnimatorSetWhenTowards(playerTransform.position);
             } else if(HasLeavedOrigin && distance >= radius)
             {
                 GoBackToOrigin();
-                AnimatorSetWhenTowards(origin);
+                //AnimatorSetWhenTowards(origin);
                 if (transform.position == origin)
                 {
                     HasLeavedOrigin = false;
@@ -78,16 +78,20 @@ public class EnemyBat : Enemy
         if (collision.tag == "Player")
         {
             speed = 0;
-            //Analytics.CustomEvent("Guarding Enemy");
-            //gamestatus = GetComponent<GameStatus>();
-            //Analytics.CustomEvent("Enemy Hit",
-            //    new Dictionary<string, object> {
-            //        {"Level", gamestatus.getLevel()},
-            //        {"Type", "Guarding"}
-            //    }
-            //);
+            Analytics.CustomEvent("Guarding Enemy");
+            gamestatus = GetComponent<GameStatus>();
+            
 
             StartCoroutine(freeze(2.0f));
+       
+
+
+             Analytics.CustomEvent("Enemy Hit",
+               new Dictionary<string, object> {
+                 {"Level", gamestatus.getLevel()},
+                {"Type", "Guarding"}
+            }
+            );
         }
 
     }
@@ -95,6 +99,7 @@ public class EnemyBat : Enemy
     {
         yield return new WaitForSeconds(time);
         speed = speedInput;
+       
     }
     private void GoBackToOrigin()
     {
@@ -135,5 +140,13 @@ public class EnemyBat : Enemy
             else anim.SetFloat("moveY", -1);
             anim.SetFloat("moveX", 0);
         }
+    }
+    public void paueseEnemy(float time)
+    {
+       
+        speed = 0;
+        patrolSpeed = 0;
+        Debug.Log("pauseE");
+        //StartCoroutine(freeze(time));
     }
 }

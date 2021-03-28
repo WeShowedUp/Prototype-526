@@ -7,11 +7,11 @@ using System.Collections.Generic;
 public class enemy1 : Enemy
 {
     // Start is called before the first frame update
+  
+    public float speedInput = 2.5f; // movement speed of the enemy 
+    public int maxrange = 3; // enemy detection range
     private Transform playerTransform;
     private Transform player;
-    public float speedInput = 2.5f; // movement speed of the enemy 
-    float speed;
-    public int maxrange = 3; // enemy detection range
     private Rigidbody2D RB;
     private Vector2 movement;
     private Vector3 direction;
@@ -20,6 +20,7 @@ public class enemy1 : Enemy
     bool status = false; // false: patroling status, true: chasing status
     bool istop = false; // false: patroling is reaching top; true: reaching the top and ready to start going down.
     float sum; // the distance between player and enemy
+    public float speed;
     Vector3 top;
     Vector3 down;
 
@@ -83,19 +84,21 @@ public class enemy1 : Enemy
         //}
         if (collision.tag == "Player")
         {
+           
             speed = 0;
 
             Analytics.CustomEvent("Patrolling Enemy");
 
             gamestatus = GetComponent<GameStatus>();
-            Analytics.CustomEvent("Enemy Hit", 
-                new Dictionary<string, object> { 
-                    {"Level", gamestatus.getLevel()},
-                    {"Type", "Patrolling"}
-                }
-            );
+           
             
             StartCoroutine(freeze(2.0f));
+            Analytics.CustomEvent("Enemy Hit",
+               new Dictionary<string, object> {
+                    {"Level", gamestatus.getLevel()},
+                    {"Type", "Patrolling"}
+               }
+           );
         }
 
     }

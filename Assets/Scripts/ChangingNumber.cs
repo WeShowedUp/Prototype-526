@@ -14,9 +14,9 @@ public class ChangingNumber : MonoBehaviour
     private const float STARTING_LIGHT_POINTS = 600; //HAVE TO CHANGE IN CANVAS TOO number of light points the player starts with
     
     //for the animation
-    private float currNumber; //currNumber is the currently displayed light value
+    public float currNumber; //currNumber is the currently displayed light value
     private float animationTime = 1.5f;
-    private float initial; //goal number is what display is changing to, intial is the start
+    public float initial; //goal number is what display is changing to, intial is the start
 
     //for the timer
     private float timerSpeed = 1f;
@@ -24,10 +24,12 @@ public class ChangingNumber : MonoBehaviour
     private float lightDecay = 50;
 
     private float deathTime;
-
+    private int light_value = 200;
 
     //for anayltics
     private GameStatus gamestatus;
+
+  
 
     public void AddToNumber(int value)
     {

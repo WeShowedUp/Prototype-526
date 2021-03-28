@@ -42452,17 +42452,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 208945099}
-        m_MethodName: TriggerEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &208945096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42520,7 +42509,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208945093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -745406591, guid: 220224b43fc464c28bc0e8de8f54a432, type: 3}
   m_Name: 
@@ -42555,11 +42544,11 @@ MonoBehaviour:
           m_EnumTypeIsCustomizable: 0
           m_CanDisable: 0
           m_PropertyType: 2
-          m_ValueType: System.Int32
+          m_ValueType: System.String
           m_Value: 
           m_Target:
             m_Target: {fileID: 567363547}
-            m_Path: gameLevel
+            m_Path: 
             m_ValidTypeNames:
             - System.Int32
             - System.Boolean
@@ -42570,7 +42559,7 @@ MonoBehaviour:
             - System.Int16
             - System.String
             - enum
-            m_Type: System.Int32
+            m_Type: System.String
             m_EnumType: 
     m_Name: Info Button Pressed
 --- !u!1001 &237772651
@@ -44413,6 +44402,8 @@ MonoBehaviour:
   message: {fileID: 332803943}
   currency: {fileID: 1160832265}
   lightPoints: 0
+  currNumber: 0
+  initial: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -96589,7 +96580,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1097624648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -96944,7 +96935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153835480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 1.1, z: 0}
+  m_LocalPosition: {x: 1.15, y: -21.42, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -96975,6 +96966,8 @@ MonoBehaviour:
   dashCooldownMask: {fileID: 1414042825}
   pauseCooldownText: {fileID: 1059926813}
   pauseCooldownMask: {fileID: 1927089364}
+  E1: {fileID: 0}
+  EB: {fileID: 7023090229487031136, guid: f260380b1acf33f4a99e89f183a533d9, type: 3}
   speed: 5
 --- !u!50 &1153835484
 Rigidbody2D:
@@ -97007,7 +97000,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0025621206, y: -0.00064050406}
@@ -100931,7 +100924,7 @@ GameObject:
   - component: {fileID: 2074432453}
   - component: {fileID: 2074432452}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

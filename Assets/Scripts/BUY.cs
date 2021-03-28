@@ -12,7 +12,7 @@ public class BUY : MonoBehaviour
     public Text CoinText;
     public GameObject warning;
     
-    private int itemCost=3;
+    private int itemCost=0;
 
     private GameStatus gamestatus;
    

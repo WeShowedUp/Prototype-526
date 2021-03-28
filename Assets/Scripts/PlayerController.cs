@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     public Text pauseCooldownText;
     public Image pauseCooldownMask;
 
+    //pause enemy
+    public enemy1 E1;
+    public EnemyBat EB;
 
     [SerializeField]
     public float speed = 5;
@@ -65,7 +68,8 @@ public class PlayerController : MonoBehaviour
         pauseCooldownText.enabled=cool;
         pauseCooldownMask.enabled=cool;
     }
-
+   
+   
     // Update is called once per frame
     void Update()
     {
@@ -104,8 +108,9 @@ public class PlayerController : MonoBehaviour
                 Analytics.CustomEvent("Dash");
                 isDash = true;
             }
-            if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown < 0)
+            if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown <= 0)
             {
+                EB.paueseEnemy(2.0f);
                 isAbility = true;
 
                 Analytics.CustomEvent("Freeze Bomb");
