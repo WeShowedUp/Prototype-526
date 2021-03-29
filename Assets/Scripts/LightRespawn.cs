@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class LightRespawn : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,7 +9,8 @@ public class LightRespawn : MonoBehaviour
     public int LightCount = 0;
     public int LightMaxNumber = 1;
     private float Timer;
-   
+    public Text inventory;
+    public static int BOMB;
     public float TimeReset = 5;
 
     void Start()
@@ -23,6 +24,8 @@ public class LightRespawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BOMB = int.Parse(inventory.text);
+       // Debug.Log("bomb" + BOMB);
         if (LightCount < LightMaxNumber)
         {
             Timer -= Time.deltaTime;

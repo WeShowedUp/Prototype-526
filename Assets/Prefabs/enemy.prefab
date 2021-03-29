@@ -18,7 +18,7 @@ GameObject:
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5035518907284524537
 Transform:
@@ -136,5 +136,5 @@ MonoBehaviour:
   health: 0
   damage: 0
   speedInput: 2
-  Change: {fileID: -6150409027089505336, guid: 538776a6310fc6744b3e0bdcdfb84904, type: 3}
   maxrange: 3
+  speed: 0

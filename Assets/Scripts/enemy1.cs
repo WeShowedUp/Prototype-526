@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Analytics;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 
 public class enemy1 : Enemy
 {
     // Start is called before the first frame update
-  
+   
     public float speedInput = 2.5f; // movement speed of the enemy 
     public int maxrange = 3; // enemy detection range
     private Transform playerTransform;
@@ -23,7 +23,7 @@ public class enemy1 : Enemy
     public float speed;
     Vector3 top;
     Vector3 down;
-
+    public static bool E1pause = false;
     private GameStatus gamestatus;
 
     void Start()
@@ -43,7 +43,8 @@ public class enemy1 : Enemy
     // Update is called once per frame
     void Update()
     {
-        base.Update();
+       // base.Update();
+
         direction = player.position - transform.position;
         direction.Normalize();
         movement = direction;
@@ -53,27 +54,29 @@ public class enemy1 : Enemy
     {
         distance = player.position - transform.position;
         sum = Mathf.Sqrt(distance.x * distance.x + distance.y * distance.y);
-
-        if (sum < maxrange)
-        {
-            status = true;
-            chase(movement);
-        }
-
-        else if (status && sum >= maxrange)
-        {
-            BackToOrigin(Origin);
-            if (transform.position == Origin)
+        if (!E1pause)
+        { 
+            if (sum < maxrange)
             {
-                status = false;
+                status = true;
+                chase(movement);
             }
 
-        }
-        else
-        {
-            patrolling();
-        }
+            else if (status && sum >= maxrange)
+            {
+                BackToOrigin(Origin);
+                if (transform.position == Origin)
+                {
+                    status = false;
+                }
 
+            }
+            else
+            {
+                patrolling();
+            }
+        }
+       
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -82,25 +85,27 @@ public class enemy1 : Enemy
         //    Destroy(gameObject);
 
         //}
-        if (collision.tag == "Player")
+        if (!E1pause)
         {
-           
-            speed = 0;
+            if (collision.tag == "Player")
+            {
 
-            Analytics.CustomEvent("Patrolling Enemy");
+                speed = 0;
 
-            gamestatus = GetComponent<GameStatus>();
-           
-            
-            StartCoroutine(freeze(2.0f));
-            Analytics.CustomEvent("Enemy Hit",
-               new Dictionary<string, object> {
+                Analytics.CustomEvent("Patrolling Enemy");
+
+                gamestatus = GetComponent<GameStatus>();
+
+
+                StartCoroutine(freeze(2.0f));
+                Analytics.CustomEvent("Enemy Hit",
+                   new Dictionary<string, object> {
                     {"Level", gamestatus.getLevel()},
                     {"Type", "Patrolling"}
-               }
-           );
+                   }
+               );
+            }
         }
-
     }
     IEnumerator freeze(float time)
     {
@@ -140,4 +145,12 @@ public class enemy1 : Enemy
 
 
     }
+    IEnumerator enemyfreeze(float time)
+    {
+      
+        yield return new WaitForSeconds(time);
+        E1pause =false;
+      
+    }
+  
 }

@@ -36,10 +36,8 @@ public class PlayerController : MonoBehaviour
     public Text pauseCooldownText;
     public Image pauseCooldownMask;
 
-    //pause enemy
+    //PAUSE ENEMY
     public enemy1 E1;
-    public EnemyBat EB;
-
     [SerializeField]
     public float speed = 5;
     
@@ -110,7 +108,9 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown <= 0)
             {
-                EB.paueseEnemy(2.0f);
+                enemy1.E1pause = true;
+                EnemyBat.EBpause = true;
+                StartCoroutine(freezeEnemy(3.0f));
                 isAbility = true;
 
                 Analytics.CustomEvent("Freeze Bomb");
@@ -155,7 +155,12 @@ public class PlayerController : MonoBehaviour
         
 
     }
-
+    IEnumerator freezeEnemy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        enemy1.E1pause = false;
+        EnemyBat.EBpause = false;
+    }
     void FixedUpdate()
     {
         if(powerGain >= 1)

@@ -33,7 +33,7 @@ public class PlayerEvent : MonoBehaviour
 
         //pause_cooldown = PAUSE_COOLDOWN_MAX;
         //pause_button.interactable = false;
-        Debug.Log("here");
+       // Debug.Log("here");
         StartCoroutine(PauseTimer(obj));
 
         

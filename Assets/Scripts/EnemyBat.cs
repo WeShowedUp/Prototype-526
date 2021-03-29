@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
-
+using UnityEngine.UI;
 public class EnemyBat : Enemy
 {
     private Transform playerTransform;
+    public LightRespawn LR;
     public float speed = 2.5f;
     public float patrolSpeed = 0.5f;
     private float speedInput;
@@ -20,7 +21,7 @@ public class EnemyBat : Enemy
     private Vector3 origin;
     private Rigidbody2D rbody;
     private Animator anim;
-
+    public static bool EBpause = false;
     private GameStatus gamestatus;
     // Start is called before the first frame update
     void Start()
@@ -36,64 +37,70 @@ public class EnemyBat : Enemy
         moveDirection = goLeftOrUp ? (-moveDirection) : moveDirection;
         InitDirection = moveDirection;
         changeTimer = changeDirectionTime;
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
+       
+       
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        base.Update();
-        if(playerTransform != null)
+        if (!EBpause)
         {
-            float distance = (transform.position - playerTransform.position).sqrMagnitude;
-            if(distance < radius)
+           // base.Update();
+            if (playerTransform != null)
             {
-                HasLeavedOrigin = true;
-                Chase();
-               // AnimatorSetWhenTowards(playerTransform.position);
-            } else if(HasLeavedOrigin && distance >= radius)
-            {
-                GoBackToOrigin();
-                //AnimatorSetWhenTowards(origin);
-                if (transform.position == origin)
+                float distance = (transform.position - playerTransform.position).sqrMagnitude;
+                if (distance < radius)
                 {
-                    HasLeavedOrigin = false;
-                    moveDirection = InitDirection;
-                    changeTimer = changeDirectionTime;
+                    HasLeavedOrigin = true;
+                    Chase();
+                    // AnimatorSetWhenTowards(playerTransform.position);
+                }
+                else if (HasLeavedOrigin && distance >= radius)
+                {
+                    GoBackToOrigin();
+                    //AnimatorSetWhenTowards(origin);
+                    if (transform.position == origin)
+                    {
+                        HasLeavedOrigin = false;
+                        moveDirection = InitDirection;
+                        changeTimer = changeDirectionTime;
+                    }
+                }
+                else
+                {
+                    patrolling();
                 }
             }
-            else
-            {
-                patrolling();
-            }
         }
+       // if (Input.GetKeyDown(KeyCode.Q)&& LightRespawn.BOMB > 0)
+        //{
+            //Debug.Log("LR" +LightRespawn.BOMB);
+          //  pause = true;
+       // }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.tag == "BULLET")
-        //{
-        //    Destroy(gameObject);
-
-        //}
-        if (collision.tag == "Player")
+        if (!EBpause)
         {
-            speed = 0;
-            Analytics.CustomEvent("Guarding Enemy");
-            gamestatus = GetComponent<GameStatus>();
-            
-
-            StartCoroutine(freeze(2.0f));
-       
+            if (collision.tag == "Player")
+            {
+                speed = 0;
+                Analytics.CustomEvent("Guarding Enemy");
+                gamestatus = GetComponent<GameStatus>();
 
 
-             Analytics.CustomEvent("Enemy Hit",
-               new Dictionary<string, object> {
+                StartCoroutine(freeze(2.0f));
+
+                Analytics.CustomEvent("Enemy Hit",
+                  new Dictionary<string, object> {
                  {"Level", gamestatus.getLevel()},
                 {"Type", "Guarding"}
+               }
+               );
             }
-            );
         }
-
     }
     IEnumerator freeze(float time)
     {
@@ -122,8 +129,8 @@ public class EnemyBat : Enemy
         Vector2 position = transform.position;
         position += moveDirection * patrolSpeed * Time.deltaTime;
         transform.position = position;
-        anim.SetFloat("moveX", moveDirection.x);
-        anim.SetFloat("moveY", moveDirection.y);
+       // anim.SetFloat("moveX", moveDirection.x);
+       // anim.SetFloat("moveY", moveDirection.y);
     }
     private void AnimatorSetWhenTowards(Vector2 towards)
     {
@@ -141,12 +148,5 @@ public class EnemyBat : Enemy
             anim.SetFloat("moveX", 0);
         }
     }
-    public void paueseEnemy(float time)
-    {
-       
-        speed = 0;
-        patrolSpeed = 0;
-        Debug.Log("pauseE");
-        //StartCoroutine(freeze(time));
-    }
+   
 }
