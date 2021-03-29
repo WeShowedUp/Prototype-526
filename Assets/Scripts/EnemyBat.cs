@@ -13,9 +13,10 @@ public class EnemyBat : Enemy
     public float radius = 3f;
     public float changeDirectionTime = 1f;
     private float changeTimer;
-    private bool HasLeavedOrigin = false;
+    public bool HasLeavedOrigin = false;
     public bool isVertical;// 0: move up or down; 1: move left or right
     public bool goLeftOrUp;// 0: move right or down; 1: move left or up
+    private float distance;
     private Vector2 moveDirection;
     private Vector2 InitDirection;
     private Vector3 origin;
@@ -37,7 +38,7 @@ public class EnemyBat : Enemy
         moveDirection = goLeftOrUp ? (-moveDirection) : moveDirection;
         InitDirection = moveDirection;
         changeTimer = changeDirectionTime;
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
        
        
     }
@@ -50,18 +51,18 @@ public class EnemyBat : Enemy
            // base.Update();
             if (playerTransform != null)
             {
-                float distance = (transform.position - playerTransform.position).sqrMagnitude;
+                distance = (transform.position - playerTransform.position).magnitude;
                 if (distance < radius)
                 {
                     HasLeavedOrigin = true;
                     Chase();
-                    // AnimatorSetWhenTowards(playerTransform.position);
+                    AnimatorSetWhenTowards(playerTransform.position);
                 }
                 else if (HasLeavedOrigin && distance >= radius)
                 {
                     GoBackToOrigin();
-                    //AnimatorSetWhenTowards(origin);
-                    if (transform.position == origin)
+                    AnimatorSetWhenTowards(origin);
+                    if (transform.position.x == origin.x && transform.position.y == origin.y)
                     {
                         HasLeavedOrigin = false;
                         moveDirection = InitDirection;
@@ -129,8 +130,8 @@ public class EnemyBat : Enemy
         Vector2 position = transform.position;
         position += moveDirection * patrolSpeed * Time.deltaTime;
         transform.position = position;
-       // anim.SetFloat("moveX", moveDirection.x);
-       // anim.SetFloat("moveY", moveDirection.y);
+        anim.SetFloat("moveX", moveDirection.x);
+        anim.SetFloat("moveY", moveDirection.y);
     }
     private void AnimatorSetWhenTowards(Vector2 towards)
     {
