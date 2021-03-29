@@ -13,7 +13,7 @@ public class EnemyBat : Enemy
     public float radius = 3f;
     public float changeDirectionTime = 1f;
     private float changeTimer;
-    public bool HasLeavedOrigin = false;
+    private bool HasLeavedOrigin = false;
     public bool isVertical;// 0: move up or down; 1: move left or right
     public bool goLeftOrUp;// 0: move right or down; 1: move left or up
     private float distance;

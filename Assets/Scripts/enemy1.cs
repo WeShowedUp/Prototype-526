@@ -17,6 +17,7 @@ public class enemy1 : Enemy
     private Vector3 direction;
     private Vector3 distance;
     private Vector3 Origin;
+    private Animator anim;
     bool status = false; // false: patroling status, true: chasing status
     bool istop = false; // false: patroling is reaching top; true: reaching the top and ready to start going down.
     float sum; // the distance between player and enemy
@@ -38,6 +39,7 @@ public class enemy1 : Enemy
         down.y -= 5;
         speed = speedInput;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -60,12 +62,14 @@ public class enemy1 : Enemy
             {
                 status = true;
                 chase(movement);
+                AnimatorSetWhenTowards(player.position);
             }
 
             else if (status && sum >= maxrange)
             {
                 BackToOrigin(Origin);
-                if (transform.position == Origin)
+                AnimatorSetWhenTowards(Origin);
+                if (transform.position.x == Origin.x && transform.position.y == Origin.y)
                 {
                     status = false;
                 }
@@ -128,6 +132,7 @@ public class enemy1 : Enemy
         if (!istop)
         {
             transform.position = Vector2.MoveTowards(transform.position, top, speed * Time.deltaTime);
+            AnimatorSetWhenTowards(top);
             if (transform.position == top)
             {
                 istop = true;
@@ -136,6 +141,7 @@ public class enemy1 : Enemy
         else if (istop)
         {
             transform.position = Vector2.MoveTowards(transform.position, down, speed * Time.deltaTime);
+            AnimatorSetWhenTowards(down);
             if (transform.position == down)
             {
                 istop = false;
@@ -152,5 +158,21 @@ public class enemy1 : Enemy
         E1pause =false;
       
     }
-  
+    private void AnimatorSetWhenTowards(Vector2 towards)
+    {
+        float xDiff = transform.position.x - towards.x;
+        float yDiff = transform.position.y - towards.y;
+        if (Mathf.Abs(xDiff) > Mathf.Abs(yDiff))
+        {
+            if (xDiff < 0) anim.SetFloat("moveX", 1);
+            else anim.SetFloat("moveX", -1);
+            anim.SetFloat("moveY", 0);
+        }
+        else
+        {
+            if (yDiff < 0) anim.SetFloat("moveY", 1);
+            else anim.SetFloat("moveY", -1);
+            anim.SetFloat("moveX", 0);
+        }
+    }
 }
