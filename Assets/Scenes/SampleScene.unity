@@ -95586,6 +95586,7 @@ MonoBehaviour:
   DarkMap: {fileID: 1977423428}
   BlurredMap: {fileID: 1236150392}
   BaseMap: {fileID: 840027531}
+  BoarderMap: {fileID: 979315}
   DarkTile: {fileID: 11400000, guid: 68391858a594b4f42b30717d29cd97ea, type: 2}
   BlurredTile: {fileID: 11400000, guid: 8eee2aa745c8f2144a30aef76ceded59, type: 2}
   lightMask: {fileID: 687376940}

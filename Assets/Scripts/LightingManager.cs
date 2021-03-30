@@ -9,9 +9,10 @@ public class LightingManager : MonoBehaviour
     public Tilemap DarkMap;
     public Tilemap BlurredMap;
     public Tilemap BaseMap;
+    public Tilemap BoarderMap;
     public Tile DarkTile;
     public Tile BlurredTile;
-
+    
     //creates a place to link the player light mask to this code
     public GameObject lightMask;
     public GameObject numberChange;
@@ -45,8 +46,8 @@ public class LightingManager : MonoBehaviour
         
 
         //makes the two lighting maps the same size and space as the base map
-        DarkMap.origin = BlurredMap.origin = BaseMap.origin;
-        DarkMap.size = BlurredMap.size = BaseMap.size;
+        DarkMap.origin = BlurredMap.origin = BaseMap.origin = BoarderMap.origin;
+        DarkMap.size = BlurredMap.size = BaseMap.size = BoarderMap.size;
 
         //Fill the lighting maps with their respective tiles
         foreach (Vector3Int p in DarkMap.cellBounds.allPositionsWithin)
