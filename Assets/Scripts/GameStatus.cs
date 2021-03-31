@@ -9,7 +9,7 @@ public class GameStatus : MonoBehaviour
     public Text keyNumber;
     public int keyCount = 0;
     public Text coinNumber;
-    public int coinCount = 0;
+    public static int coinCount = 0;
 
     public int gameLevel;
     public float levelStartTimer;

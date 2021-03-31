@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private bool isAbility;
 
     public Text inventory;
-    public BUY buy;
+    //public BUY buy;
 
     // dashing cooldown timer UI components
     public Text dashCooldownText;
@@ -106,8 +106,9 @@ public class PlayerController : MonoBehaviour
                 Analytics.CustomEvent("Dash");
                 isDash = true;
             }
-            if (Input.GetKeyDown(KeyCode.Q) && int.Parse(inventory.text) > 0 && pauseCooldown <= 0)
+            if (Input.GetKeyDown(KeyCode.Q) && pauseCooldown <= 0 &&BUY.freezebombCount > 0)
             {
+               // Debug.Log(GameStatus.coinCount);
                 enemy1.E1pause = true;
                 EnemyBat.EBpause = true;
                 StartCoroutine(freezeEnemy(3.0f));
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 
                 int left = int.Parse(inventory.text) - 1;
                 inventory.text = left.ToString();
-                buy.freezebombCount--;
+                BUY.freezebombCount--;
             }
 
 
@@ -163,7 +164,8 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(powerGain >= 1)
+        
+        if (powerGain >= 1)
         {
             myRB.velocity = lastMove * speed;
             if (isDash)

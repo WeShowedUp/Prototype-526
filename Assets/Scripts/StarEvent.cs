@@ -23,7 +23,7 @@ public class StarEvent : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-            status.coinCount += coinsAwarded; 
+         GameStatus.coinCount += coinsAwarded; 
 
             //add a coin awarded event for each coin
             for( int i=0; i<coinsAwarded; i++ ){

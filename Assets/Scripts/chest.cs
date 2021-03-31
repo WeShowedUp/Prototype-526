@@ -59,7 +59,7 @@ public class chest : MonoBehaviour
                 controls.powerGain++;
 
                 //give any currencny rewards here
-                status.coinCount += coinsAwarded;
+                GameStatus.coinCount += coinsAwarded;
                 for (int i=0; i<coinsAwarded; i++){
                     
                     Analytics.CustomEvent("Get Coins", 

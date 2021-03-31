@@ -7,7 +7,7 @@ using UnityEngine.Analytics;
 public class BUY : MonoBehaviour
 {
     public GameStatus coin;
-    public int freezebombCount;
+    public static int freezebombCount;
     public Text freezebombText;
     public Text CoinText;
     public GameObject warning;
@@ -24,9 +24,9 @@ public class BUY : MonoBehaviour
         }
         else
         {
-            if (coin.coinCount >= itemCost)
+            if (GameStatus.coinCount >= itemCost)
             {
-                coin.coinCount -= itemCost;
+                GameStatus.coinCount -= itemCost;
 
 
                 gamestatus = GetComponent<GameStatus>();
@@ -54,7 +54,7 @@ public class BUY : MonoBehaviour
             }
 
             freezebombText.text = freezebombCount.ToString();
-            CoinText.text = coin.coinCount.ToString();
+            CoinText.text = GameStatus.coinCount.ToString();
         }
         
 
