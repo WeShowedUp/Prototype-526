@@ -118,8 +118,8 @@ public class enemy1 : Enemy
     }
     private void chase(Vector2 direction)
     {
-        RB.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
-
+        //RB.MovePosition((Vector2)transform.position + (movement * speed * Time.deltaTime));
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
     }
     private void BackToOrigin(Vector3 Origin)
@@ -133,7 +133,7 @@ public class enemy1 : Enemy
         {
             transform.position = Vector2.MoveTowards(transform.position, top, speed * Time.deltaTime);
             AnimatorSetWhenTowards(top);
-            if (transform.position == top)
+            if (transform.position.x == top.x && transform.position.y == top.y)
             {
                 istop = true;
             }
@@ -142,7 +142,7 @@ public class enemy1 : Enemy
         {
             transform.position = Vector2.MoveTowards(transform.position, down, speed * Time.deltaTime);
             AnimatorSetWhenTowards(down);
-            if (transform.position == down)
+            if (transform.position.x == down.x && transform.position.y == down.y)
             {
                 istop = false;
             }
