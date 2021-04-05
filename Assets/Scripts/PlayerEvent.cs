@@ -7,11 +7,15 @@ public class PlayerEvent : MonoBehaviour
 {
    
     public GameObject obj;
+    private Transform innerMask;
     private int light_value = 200;
     private int enemy_value = -300;
     public Button pause_button;
-    
-    
+
+    private void Start()
+    {
+        innerMask = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().GetChild(1).GetChild(1);
+    }
     void OnTriggerEnter2D(Collider2D col)
     {
 
@@ -23,6 +27,11 @@ public class PlayerEvent : MonoBehaviour
         if (col.gameObject.tag == "enemy")
         {
             obj.GetComponent<ChangingNumber>().AddToNumber(enemy_value);
+        }
+        if (col.gameObject.tag == "Torch")
+        {
+            innerMask.localScale = new Vector3(50, 50, 1);
+            StartCoroutine(LightAll(5.0f));
         }
     }
 
@@ -50,7 +59,11 @@ public class PlayerEvent : MonoBehaviour
         obj.GetComponent<ChangingNumber>().SetLightDecay(value);
     }
 
-    
-    
-   
+    IEnumerator LightAll(float time)
+    {
+        yield return new WaitForSeconds(time);
+        innerMask.localScale = new Vector3(3, 3, 1);
+    }
+
+
 }
