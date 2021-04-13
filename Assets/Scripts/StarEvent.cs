@@ -8,6 +8,7 @@ public class StarEvent : MonoBehaviour
 
     public GameStatus status;
     private int coinsAwarded;
+    public AudioClip getCoin;
     //private GameStatus gamestatus;
 
     //private int i;
@@ -23,10 +24,10 @@ public class StarEvent : MonoBehaviour
         
         if (collision.gameObject.tag == "Player")
         {
-         GameStatus.coinCount += coinsAwarded; 
-
+         GameStatus.coinCount += coinsAwarded;
+         AudioSource.PlayClipAtPoint(getCoin, transform.position, 3.0f);
             //add a coin awarded event for each coin
-            for( int i=0; i<coinsAwarded; i++ ){
+            for ( int i=0; i<coinsAwarded; i++ ){
                 //status = GetComponent<GameStatus>();
                 Analytics.CustomEvent("Get Coins", 
                     new Dictionary<string, object> { 

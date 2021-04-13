@@ -30,7 +30,7 @@ public class chest : MonoBehaviour
     
     private int coinsAwarded;
 
-  
+    public AudioClip ChestOpenAudio;
 
     void Start()
     {
@@ -52,8 +52,8 @@ public class chest : MonoBehaviour
             {
                 //say good job
                 opened.SetActive(true);
+                AudioSource.PlayClipAtPoint(ChestOpenAudio, transform.position, 3.0f);
 
-                
 
                 //award dash
                 controls.powerGain++;

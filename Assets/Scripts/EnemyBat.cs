@@ -24,6 +24,9 @@ public class EnemyBat : Enemy
     private Animator anim;
     public static bool EBpause = false;
     private GameStatus gamestatus;
+    //music
+    public AudioClip attackAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,7 +94,7 @@ public class EnemyBat : Enemy
                 Analytics.CustomEvent("Guarding Enemy");
                 gamestatus = GetComponent<GameStatus>();
 
-
+                AudioSource.PlayClipAtPoint(attackAudio, transform.position, 3.0f);
                 StartCoroutine(freeze(2.0f));
 
                 Analytics.CustomEvent("Enemy Hit",

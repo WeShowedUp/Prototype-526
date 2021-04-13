@@ -12,6 +12,9 @@ public class PlayerEvent : MonoBehaviour
     private int enemy_value = -300;
     public Button pause_button;
 
+    //music
+    public AudioClip getHit;
+
     private void Start()
     {
         innerMask = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().GetChild(1).GetChild(1);
@@ -26,6 +29,7 @@ public class PlayerEvent : MonoBehaviour
         }
         if (col.gameObject.tag == "enemy")
         {
+            AudioSource.PlayClipAtPoint(getHit, transform.position, 3.0f);
             obj.GetComponent<ChangingNumber>().AddToNumber(enemy_value);
         }
         if (col.gameObject.tag == "Torch")

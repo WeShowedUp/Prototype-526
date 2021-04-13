@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 5860177123063694186}
   - component: {fileID: 2468499653531112743}
   m_Layer: 0
-  m_Name: bat_0 (1)
+  m_Name: enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5860177123063694102
 Transform:
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1751050895
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -697763020151794088, guid: 10dcbc92d476d0248b1f86a8ee8709d0,
     type: 3}
@@ -169,3 +169,4 @@ MonoBehaviour:
   speedInput: 2
   maxrange: 3
   speed: 0
+  attackAudio: {fileID: 8300000, guid: 7e6c771adc14912449668376921e238c, type: 3}

@@ -43013,6 +43013,7 @@ MonoBehaviour:
   keyspawn: {fileID: 2089284924}
   enemyspawn: {fileID: 2089284926}
   shop: {fileID: 567363545}
+  ChestOpenAudio: {fileID: 8300000, guid: 27bf592dc76050244af7c4704464b3c1, type: 3}
 --- !u!4 &273928762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3721057453546356700, guid: 1bf350b4d7e0f2242bb1c188a9795421,
@@ -44578,6 +44579,7 @@ GameObject:
   - component: {fileID: 567363547}
   - component: {fileID: 567363545}
   - component: {fileID: 567363548}
+  - component: {fileID: 567363549}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -44647,6 +44649,102 @@ MonoBehaviour:
   freezebombText: {fileID: 1911883607}
   CoinText: {fileID: 409571767}
   warning: {fileID: 846908181}
+--- !u!82 &567363549
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567363544}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cfc24d33cc377384e919e2ef8d4e279e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.09
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &611295528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8838861967598406282, guid: 00c50f1e56f8d7f4d80ea7295917bd1c,
@@ -96391,6 +96489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 519420028}
   pause_button: {fileID: 0}
+  getHit: {fileID: 8300000, guid: f79af64b982f1df48946f68830ad7de7, type: 3}
 --- !u!1 &1160832263
 GameObject:
   m_ObjectHideFlags: 0
@@ -100134,6 +100233,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5468726707638007015, guid: e9c800f97170c4b47a2fae906155523b,
+        type: 3}
+      propertyPath: getKey
+      value: 
+      objectReference: {fileID: 8300000, guid: b70946fe1a6cd414aad4ef4d4a4b9dfa, type: 3}
     - target: {fileID: 7051672170157546441, guid: e9c800f97170c4b47a2fae906155523b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100457,6 +100561,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679397450264103526, guid: 63bc6eaa185ac6e44bfacec7184390ad,
+        type: 3}
+      propertyPath: getCoin
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bab941898d04a545a8f2303916b94ee, type: 3}
     - target: {fileID: 7660680889655585649, guid: 63bc6eaa185ac6e44bfacec7184390ad,
         type: 3}
       propertyPath: m_Name

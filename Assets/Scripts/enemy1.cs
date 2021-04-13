@@ -27,6 +27,9 @@ public class enemy1 : Enemy
     public static bool E1pause = false;
     private GameStatus gamestatus;
 
+    //music
+    public AudioClip attackAudio;
+
     void Start()
     {
         health = 1;
@@ -99,7 +102,7 @@ public class enemy1 : Enemy
                 Analytics.CustomEvent("Patrolling Enemy");
 
                 gamestatus = GetComponent<GameStatus>();
-
+                AudioSource.PlayClipAtPoint(attackAudio, transform.position, 3.0f);
 
                 StartCoroutine(freeze(2.0f));
                 Analytics.CustomEvent("Enemy Hit",
