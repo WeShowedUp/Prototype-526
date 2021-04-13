@@ -41981,7 +41981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3b3825e2d3e21746a10df167a50ca92, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb3433fefb3106c4ca604718f7dee252, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -96377,7 +96377,8 @@ SpriteRenderer:
   m_SortingLayerID: 1751050895
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -2208510542369132325, guid: 07efdba0ed278474f9a39c5b7f0cd88d,
+    type: 3}
   m_Color: {r: 1, g: 0.99590296, b: 0.7783019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96397,7 +96398,7 @@ Transform:
   m_GameObject: {fileID: 1153835480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.7, y: 2.06, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
   m_Children:
   - {fileID: 519420032}
   - {fileID: 468246056}
@@ -96464,9 +96465,9 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.0025621206, y: -0.00064050406}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.78125, y: 0.8125}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -100481,6 +100482,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260257713384364067, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260257713384364067, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6260257713384364076, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
         type: 3}
