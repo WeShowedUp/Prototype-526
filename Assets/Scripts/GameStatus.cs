@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameStatus : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,6 +36,12 @@ public class GameStatus : MonoBehaviour
         //levelStartTimer=Time.time;
         
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     void end()
     {
         //we might need to reset items and coins here?
