@@ -20,6 +20,9 @@ public class GameStatus : MonoBehaviour
         gameLevel=0;
         Time.timeScale = 1;
         levelStartTimer=Time.timeSinceLevelLoad;
+        keyCount = 0;
+        coinCount = 0;
+        BUY.freezebombCount = 1;
     }
 
     // Update is called once per frame

@@ -44659,7 +44659,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cfc24d33cc377384e919e2ef8d4e279e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8f9096cd6565d294b9cc385844fbde48, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.09
   m_Pitch: 1
@@ -99049,7 +99049,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!222 &1911883608
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -99813,6 +99813,7 @@ MonoBehaviour:
   key: {fileID: 7657616831217186859, guid: e9c800f97170c4b47a2fae906155523b, type: 3}
   box: {fileID: 273928759}
   star: {fileID: 7660680889655585649, guid: 63bc6eaa185ac6e44bfacec7184390ad, type: 3}
+  torch: {fileID: 1633124547073996509, guid: 886d82255ac24d94598709143a572773, type: 3}
 --- !u!4 &2089284925
 Transform:
   m_ObjectHideFlags: 0
@@ -100170,6 +100171,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: torch
       objectReference: {fileID: 0}
+    - target: {fileID: 1633124547073996509, guid: 886d82255ac24d94598709143a572773,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1633124547073996511, guid: 886d82255ac24d94598709143a572773,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100294,6 +100300,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7051672170157546441, guid: e9c800f97170c4b47a2fae906155523b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7657616831217186859, guid: e9c800f97170c4b47a2fae906155523b,
         type: 3}
       propertyPath: m_Name
@@ -100371,12 +100382,12 @@ PrefabInstance:
     - target: {fileID: 3721057453546356700, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3721057453546356700, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3721057453546356701, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
@@ -100387,7 +100398,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a3f96051d41afdf41933e987fdf36021,
+      objectReference: {fileID: 21300000, guid: 4e5a14fb85e28cf41b251ea2f72ad219,
         type: 3}
     - target: {fileID: 3721057453546356701, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
@@ -100407,12 +100418,12 @@ PrefabInstance:
     - target: {fileID: 7389610484274515397, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 3.04
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7389610484274515397, guid: 1bf350b4d7e0f2242bb1c188a9795421,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.9
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bf350b4d7e0f2242bb1c188a9795421, type: 3}

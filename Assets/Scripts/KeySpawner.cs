@@ -7,6 +7,7 @@ public class KeySpawner : MonoBehaviour
     public GameObject key;
     public GameObject box;
     public GameObject star;
+    public GameObject torch;
 
     void Start()
     {
@@ -18,8 +19,8 @@ public class KeySpawner : MonoBehaviour
         //set position limit to the size of the map
         Vector3 randompos;
 
-        //spawn three keys
-        for (int i = 0; i < 1; i++)
+        //spawn two keys
+        for (int i = 0; i < 2; i++)
         {
             randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
             Instantiate(key, randompos, Quaternion.identity);
@@ -34,5 +35,9 @@ public class KeySpawner : MonoBehaviour
         //spawn a star
         randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
         Instantiate(star, randompos, Quaternion.identity);
+
+        //spawn a torch
+        randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
+        Instantiate(torch, randompos, Quaternion.identity);
     }
 }

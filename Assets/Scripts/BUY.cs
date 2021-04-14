@@ -7,12 +7,12 @@ using UnityEngine.Analytics;
 public class BUY : MonoBehaviour
 {
     public GameStatus coin;
-    public static int freezebombCount;
+    public static int freezebombCount = 1;
     public Text freezebombText;
     public Text CoinText;
     public GameObject warning;
     
-    private int itemCost=0;
+    private int itemCost=3;
 
     private GameStatus gamestatus;
    

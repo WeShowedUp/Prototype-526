@@ -48,7 +48,7 @@ public class chest : MonoBehaviour
         {
             //check for number of keys
             //open
-            if (status.keyCount==1)
+            if (status.keyCount>=1)
             {
                 //say good job
                 opened.SetActive(true);
@@ -112,7 +112,7 @@ public class chest : MonoBehaviour
             opened.SetActive(false);
             locked.SetActive(false);
 
-            if (status.keyCount==1){
+            if (status.keyCount>=1){
 
                 //reset keys to 0
                 status.keyCount=0;
@@ -120,6 +120,9 @@ public class chest : MonoBehaviour
                 
                 // destroy old chest
                 Destroy(this.gameObject);
+
+                // destroy old keys
+                Destroy(GameObject.FindGameObjectWithTag("key"));
 
                 //remove good job
                 opened.SetActive(false);

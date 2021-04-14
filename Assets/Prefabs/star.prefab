@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 0}
+  getCoin: {fileID: 8300000, guid: 4bab941898d04a545a8f2303916b94ee, type: 3}
 --- !u!1001 &4531128927804401165
 PrefabInstance:
   m_ObjectHideFlags: 0

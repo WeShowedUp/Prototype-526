@@ -23,8 +23,8 @@ public class LightingManager : MonoBehaviour
     {
         
         const float MAX_LIGHT_POINTS = 900; //lightpoints above this will not affect FOV size
-        const float MAX_LIGHT_SCALE = .3f; //largest the light mask will be scaled
-        const float MIN_LIGHT_SCALE = .1f; //smallest the light mask will be scaled
+        const float MAX_LIGHT_SCALE = 1.5f; //largest the light mask will be scaled
+        const float MIN_LIGHT_SCALE = 0.5f; //smallest the light mask will be scaled
 
         //asks the changing number file for the current number of light points
         lightPoints = numberChange.GetComponent<ChangingNumber>().getLightPts();
