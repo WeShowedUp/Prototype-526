@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float speed = 5;
     
+
+    //Animator
+    private Vector2 lookDirection = new Vector2(1, 0);
+    private Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -49,8 +53,9 @@ public class PlayerController : MonoBehaviour
         //powerGain=0;
 
         enableCooldownTimer(false); 
-        enablePauseCooldownTimer(false);       
+        enablePauseCooldownTimer(false);
 
+        anim = GetComponent<Animator>();
     }
 
     // enable or disable dashing cooldown timer UI
@@ -71,34 +76,44 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        Vector2 moveVector = new Vector2(moveX, moveY);
+        if (moveX != 0 || moveY != 0)
+        {
+            lookDirection = moveVector;
+        }
+        anim.SetFloat("lookX", lookDirection.x);
+        anim.SetFloat("lookY", lookDirection.y);
+        anim.SetFloat("isMoving", moveVector.magnitude);
+
         if (powerGain >= 0)
         {
             //speed allows it to move at a speed faster than 1 
             //time accounts for computers of different speeds
             //Raw axis makes the player move fast at the start rather than having to ramp up speed
-            myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed;
+            myRB.velocity = moveVector * speed;
         }
         if (powerGain >= 1)
         {
-            float moveX = 0f; 
-            float moveY = 0f;
             
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                moveX = -1f;
-            }
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                moveX = +1f;
-            }
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                moveY = +1f;
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                moveY = -1f;
-            }
+            //if (Input.GetKey(KeyCode.LeftArrow))
+            //{
+            //    moveX = -1f;
+            //}
+            //if (Input.GetKey(KeyCode.RightArrow))
+            //{
+            //    moveX = +1f;
+            //}
+            //if (Input.GetKey(KeyCode.UpArrow))
+            //{
+            //    moveY = +1f;
+            //}
+            //if (Input.GetKey(KeyCode.DownArrow))
+            //{
+            //    moveY = -1f;
+            //}
             lastMove = new Vector2(moveX, moveY).normalized;
 
             if (Input.GetKeyDown(KeyCode.Space))
