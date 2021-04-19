@@ -41264,7 +41264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d53f236028ba73f4a8bc8bbdd5f54601, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3c10ed030f7c1944bdb1749ce094e67, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43080,7 +43080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bc9486cb7f5c9e4096c1ed071b9d0f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28b3b47507b56384aa7cc7bd82236662, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43097,7 +43097,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274448411}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1001 &276018582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96476,7 +96476,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.103633344, y: 0.11003867}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.54
 --- !u!114 &1153835486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98307,7 +98307,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64c489633dc1d8741963de1e22c39254, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4e50f609c757334eb35bee6e67f43e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -98315,7 +98315,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1685801091
 CanvasRenderer:
@@ -99095,7 +99095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1927089363
 RectTransform:
   m_ObjectHideFlags: 0
@@ -99134,7 +99134,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bc9486cb7f5c9e4096c1ed071b9d0f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28b3b47507b56384aa7cc7bd82236662, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -99151,7 +99151,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927089362}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1 &1930081216
 GameObject:
   m_ObjectHideFlags: 0
