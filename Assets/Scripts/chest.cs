@@ -87,6 +87,23 @@ public class chest : MonoBehaviour
                 //open shop
                 shop.OpenShop();
 
+                // destroy old keys
+                Destroy(GameObject.FindGameObjectWithTag("key"));
+
+                //destroy old stars
+                GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
+                foreach (GameObject star in stars)
+                {
+                    Destroy(star);
+                }
+
+                //destroy old torch
+                GameObject[] torchs = GameObject.FindGameObjectsWithTag("Torch");
+                foreach (GameObject torch in torchs)
+                {
+                    Destroy(torch);
+                }
+
                 //spawn new keys and chest
                 keyspawn.SpawnObjectAtRandom();
 
@@ -121,8 +138,6 @@ public class chest : MonoBehaviour
                 // destroy old chest
                 Destroy(this.gameObject);
 
-                // destroy old keys
-                Destroy(GameObject.FindGameObjectWithTag("key"));
 
                 //remove good job
                 opened.SetActive(false);

@@ -5,14 +5,14 @@ using UnityEngine;
 public class LIGHTR : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject lightPrefab;
+    public GameObject lightPrefab; 
     public int LightCount = 0;
     public int LightMaxNumber = 1;
     private float Timer;
 
     public float TimeReset = 5;
 
-    void Start()
+    void Start() 
     {
         LightCount++;
         GameObject instance = GameObject.Instantiate(lightPrefab, transform.position, Quaternion.identity) as GameObject;
@@ -30,8 +30,8 @@ public class LIGHTR : MonoBehaviour
             if (Timer <= 0)
             {
                 Vector3 pos = transform.position;
-                pos.x += Random.Range(-5, 5);
-                pos.y += Random.Range(-5, 5);
+                pos.x += Random.Range(-3, 3);
+                pos.y += Random.Range(-3, 3);
                 LightCount++;
                 GameObject instance = GameObject.Instantiate(lightPrefab, pos, Quaternion.identity) as GameObject;
 
