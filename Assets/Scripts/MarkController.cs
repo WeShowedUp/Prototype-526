@@ -18,6 +18,9 @@ public class MarkController : MonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        RectTransform canv = GameObject.Find("Canvas").GetComponent<RectTransform>();
+        y0 = (canv.sizeDelta.y - 60) * canv.localScale.y / playerTransform.localScale.y / 2;
+        x0 = (canv.sizeDelta.x - 60) * canv.localScale.x / playerTransform.localScale.x / 2;
         k = y0 / x0;
     }
 
