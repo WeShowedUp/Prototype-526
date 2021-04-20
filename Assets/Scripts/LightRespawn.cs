@@ -6,6 +6,7 @@ public class LightRespawn : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject lightPrefab;
+    public GameObject Light;
     public int LightCount = 0;
     public int LightMaxNumber = 1;
     private float Timer;
@@ -16,6 +17,7 @@ public class LightRespawn : MonoBehaviour
     void Start()
     {
         LightCount++;
+        //light= GameObject.FindGameObjectWithTag("Item_light");
         GameObject instance = GameObject.Instantiate(lightPrefab, transform.position, Quaternion.identity) as GameObject;
         instance.GetComponent<lightEvent>().Respawnpoint = this;
         Timer = TimeReset;
@@ -32,13 +34,14 @@ public class LightRespawn : MonoBehaviour
 
             if (Timer <= 0)
             {
-                Vector3 pos = transform.position;
-                pos.x += Random.Range(-5, 5);
-                pos.y += Random.Range(-5, 5);
+                //Vector3 pos = transform.position;
+                //pos.x += Random.Range(-5, 5);
+                //pos.y += Random.Range(-5, 5);
                 LightCount++;
-                GameObject instance = GameObject.Instantiate(lightPrefab, pos, Quaternion.identity)as GameObject;
-
-                instance.GetComponent<lightEvent>().Respawnpoint = this;
+                GameObject instance = GameObject.Instantiate(Light, transform.position, Quaternion.identity) as GameObject;
+                instance.GetComponent<light>().RP = this;
+                //GameObject instance = GameObject.Instantiate(lightPrefab.transform.GetChild(0), pos, Quaternion.identity)as GameObject;
+                //instance.GetComponent<lightEvent>().Respawnpoint = this;
 
                 Timer = TimeReset;
 

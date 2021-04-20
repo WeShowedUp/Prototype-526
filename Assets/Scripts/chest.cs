@@ -26,6 +26,7 @@ public class chest : MonoBehaviour
     [SerializeField]
     private EnemySpawner enemyspawn;
     public Shop shop;
+    public Text timer;
 
     
     private int coinsAwarded;
@@ -87,11 +88,26 @@ public class chest : MonoBehaviour
                 //open shop
                 shop.OpenShop();
 
-                //spawn new keys and chest
-                keyspawn.SpawnObjectAtRandom();
+                // destroy old keys
+                Destroy(GameObject.FindGameObjectWithTag("key"));
 
-                //spawn new enemies
-                enemyspawn.SpawnEnemyAtRandom();
+                //destroy old stars
+                GameObject[] stars = GameObject.FindGameObjectsWithTag("star");
+                foreach (GameObject star in stars)
+                {
+                    Destroy(star);
+                }
+
+                //destroy old torch
+                GameObject[] torchs = GameObject.FindGameObjectsWithTag("Torch");
+                foreach (GameObject torch in torchs)
+                {
+                    Destroy(torch);
+                }
+
+                //pause the timer
+                timer.GetComponent<Timer>().setEnd();
+
             }
             
             //dont open, say to get more keys
@@ -116,7 +132,6 @@ public class chest : MonoBehaviour
 
                 //reset keys to 0
                 status.keyCount=0;
-
                 
                 // destroy old chest
                 Destroy(this.gameObject);
@@ -124,10 +139,20 @@ public class chest : MonoBehaviour
                 // destroy old keys
                 Destroy(GameObject.FindGameObjectWithTag("key"));
 
+                //spawn new keys and chest
+                keyspawn.SpawnObjectAtRandom();
+
+                //spawn new enemies
+                enemyspawn.SpawnEnemyAtRandom();
+
                 //remove good job
                 opened.SetActive(false);
 
             }
+
+            //resume timer
+            timer.GetComponent<Timer>().setResume();
+
         }
     }
     // Start is called before the first frame update

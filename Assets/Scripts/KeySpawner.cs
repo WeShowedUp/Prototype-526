@@ -33,12 +33,24 @@ public class KeySpawner : MonoBehaviour
         chest.tag = "Chest";
         chest.SetActive(true);
 
-        //spawn a star
-        randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
-        Instantiate(star, randompos, Quaternion.identity);
+        //spawn three stars
+        for (int i = 0; i < 3; i++)
+        {
+            randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
+            Instantiate(star, randompos, Quaternion.identity);
+        }
 
-        //spawn a torch
-        randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
+        //spawn four torches at four corners
+        randompos = new Vector3(Random.Range(-44f, 0f), Random.Range(-24f, -2f), 0f);
+        Instantiate(torch, randompos, Quaternion.identity);
+
+        randompos = new Vector3(Random.Range(-44f, 0f), Random.Range(3f, 26f), 0f);
+        Instantiate(torch, randompos, Quaternion.identity);
+
+        randompos = new Vector3(Random.Range(12f, 56f), Random.Range(-24f, -2f), 0f);
+        Instantiate(torch, randompos, Quaternion.identity);
+
+        randompos = new Vector3(Random.Range(12f, 56f), Random.Range(3f, 26f), 0f);
         Instantiate(torch, randompos, Quaternion.identity);
     }
 }

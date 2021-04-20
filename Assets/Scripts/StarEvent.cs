@@ -16,7 +16,7 @@ public class StarEvent : MonoBehaviour
     void Start()
     {
         status = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
-        coinsAwarded=2;
+        coinsAwarded=1;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

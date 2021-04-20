@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8838861967598406282}
-  - component: {fileID: 5218418963870388687}
   m_Layer: 0
   m_Name: RespawnL
   m_TagString: Untagged
@@ -31,20 +30,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5218418963870388687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8288254280758018445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 443fea123e856364881bcebaeafe1391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightPrefab: {fileID: 492130239237673253, guid: 538776a6310fc6744b3e0bdcdfb84904,
-    type: 3}
-  LightCount: 0
-  LightMaxNumber: 1
-  TimeReset: 5
