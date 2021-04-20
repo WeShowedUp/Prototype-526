@@ -9,6 +9,7 @@ TagManager:
   - Item_light
   - key
   - Torch
+  - Chest
   layers:
   - Default
   - TransparentFX

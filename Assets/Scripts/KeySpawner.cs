@@ -30,6 +30,7 @@ public class KeySpawner : MonoBehaviour
         GameObject chest;
         randompos = new Vector3(Random.Range(-44f, 56f), Random.Range(-24f, 26f), 0f);
         chest = Instantiate(box, randompos, Quaternion.identity);
+        chest.tag = "Chest";
         chest.SetActive(true);
 
         //spawn a star
