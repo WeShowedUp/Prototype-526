@@ -11,7 +11,7 @@ public class PlayerEvent : MonoBehaviour
     private int light_value = 200;
     private int enemy_value = -300;
     public Button pause_button;
-
+    public AudioClip footstep;
     //music
     public AudioClip getHit;
 
@@ -69,5 +69,8 @@ public class PlayerEvent : MonoBehaviour
         innerMask.localScale = new Vector3(3, 3, 1);
     }
 
-
+    public void Run()
+    {
+        AudioSource.PlayClipAtPoint(footstep, transform.position, 1000.0f);
+    }
 }

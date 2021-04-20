@@ -41738,8 +41738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6.799988}
-  m_SizeDelta: {x: -780.43384, y: -111.020874}
+  m_AnchoredPosition: {x: -37.190002, y: 6.76001}
+  m_SizeDelta: {x: -719.2593, y: -112.90314}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55333449
 MonoBehaviour:
@@ -96837,6 +96837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 519420028}
   pause_button: {fileID: 0}
+  footstep: {fileID: 8300000, guid: 961a452b5a29420499817dba6ff7911c, type: 3}
   getHit: {fileID: 8300000, guid: f79af64b982f1df48946f68830ad7de7, type: 3}
 --- !u!95 &1153835487
 Animator:
