@@ -26,6 +26,7 @@ public class chest : MonoBehaviour
     [SerializeField]
     private EnemySpawner enemyspawn;
     public Shop shop;
+    public Text timer;
 
     
     private int coinsAwarded;
@@ -109,6 +110,10 @@ public class chest : MonoBehaviour
 
                 //spawn new enemies
                 enemyspawn.SpawnEnemyAtRandom();
+
+                //pause the timer
+                timer.GetComponent<Timer>().setEnd();
+
             }
             
             //dont open, say to get more keys
@@ -143,6 +148,10 @@ public class chest : MonoBehaviour
                 opened.SetActive(false);
 
             }
+
+            //resume timer
+            timer.GetComponent<Timer>().setResume();
+
         }
     }
     // Start is called before the first frame update
