@@ -105,12 +105,6 @@ public class chest : MonoBehaviour
                     Destroy(torch);
                 }
 
-                //spawn new keys and chest
-                keyspawn.SpawnObjectAtRandom();
-
-                //spawn new enemies
-                enemyspawn.SpawnEnemyAtRandom();
-
                 //pause the timer
                 timer.GetComponent<Timer>().setEnd();
 
@@ -138,11 +132,18 @@ public class chest : MonoBehaviour
 
                 //reset keys to 0
                 status.keyCount=0;
-
                 
                 // destroy old chest
                 Destroy(this.gameObject);
 
+                // destroy old keys
+                Destroy(GameObject.FindGameObjectWithTag("key"));
+
+                //spawn new keys and chest
+                keyspawn.SpawnObjectAtRandom();
+
+                //spawn new enemies
+                enemyspawn.SpawnEnemyAtRandom();
 
                 //remove good job
                 opened.SetActive(false);
