@@ -28,6 +28,9 @@ public class chest : MonoBehaviour
     public Shop shop;
     public Text timer;
 
+    //to pause enemies
+    public enemy1 E1;
+
     
     private int coinsAwarded;
 
@@ -145,6 +148,13 @@ public class chest : MonoBehaviour
                 //spawn new enemies
                 enemyspawn.SpawnEnemyAtRandom();
 
+                /*
+                //breifly freeze enmies as player leaves chest
+                enemy1.E1pause = true;
+                EnemyBat.EBpause = true;
+                StartCoroutine(freezeEnemy(3.0f));
+                */
+
                 //remove good job
                 opened.SetActive(false);
 
@@ -155,7 +165,14 @@ public class chest : MonoBehaviour
 
         }
     }
-    // Start is called before the first frame update
-   
+    
+
+    IEnumerator freezeEnemy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        enemy1.E1pause = false;
+        EnemyBat.EBpause = false;
+    }
 }
+
 

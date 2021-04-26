@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
             return;
         float t = Time.time - startTime;
         string min = ((int)t / 60).ToString();
-        string sec = ((int)t % 60).ToString("f2");
+        string sec = ((int)t % 60).ToString("D2");
 
         timerText.text = min + ":" + sec;
     }
