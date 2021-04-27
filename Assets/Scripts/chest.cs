@@ -126,16 +126,16 @@ public class chest : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         //when the olayer walks away from the chest the messages disapear
-        if (collision.tag =="Player")
+        if (collision.tag == "Player")
         {
             opened.SetActive(false);
             locked.SetActive(false);
 
-            if (status.keyCount>=1){
+            if (status.keyCount >= 1) {
 
                 //reset keys to 0
-                status.keyCount=0;
-                
+                status.keyCount = 0;
+
                 // destroy old chest
                 Destroy(this.gameObject);
 
@@ -148,12 +148,12 @@ public class chest : MonoBehaviour
                 //spawn new enemies
                 enemyspawn.SpawnEnemyAtRandom();
 
-                /*
+
                 //breifly freeze enmies as player leaves chest
-                enemy1.E1pause = true;
-                EnemyBat.EBpause = true;
-                StartCoroutine(freezeEnemy(3.0f));
-                */
+                // enemy1.E1pause = true;
+                //EnemyBat.EBpause = true;
+                //  StartCoroutine(freezeEnemy(3.0f));
+
 
                 //remove good job
                 opened.SetActive(false);
@@ -162,17 +162,13 @@ public class chest : MonoBehaviour
 
             //resume timer
             timer.GetComponent<Timer>().setResume();
-
+            
+           
         }
     }
     
 
-    IEnumerator freezeEnemy(float time)
-    {
-        yield return new WaitForSeconds(time);
-        enemy1.E1pause = false;
-        EnemyBat.EBpause = false;
-    }
+   
 }
 
 
