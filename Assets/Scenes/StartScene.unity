@@ -1319,7 +1319,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WeShowedUp
+  m_Text: Lighting
 --- !u!222 &723389641
 CanvasRenderer:
   m_ObjectHideFlags: 0

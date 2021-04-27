@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Text timerText;
+    public Text Score;
     private float startTime;
     private bool end;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Timer : MonoBehaviour
         string sec = ((int)t % 60).ToString("D2");
 
         timerText.text = min + ":" + sec;
+        Score.text = "Score "+min + ":" + sec;
     }
 
     public void setEnd()
