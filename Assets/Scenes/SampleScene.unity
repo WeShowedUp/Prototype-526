@@ -21828,15 +21828,6 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 53, y: -8, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
   - first: {x: 58, y: -8, z: 0}
     second:
       serializedVersion: 2
@@ -41063,14 +41054,14 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 4539
+  - m_RefCount: 4538
     m_Data: {fileID: 11400000, guid: 26d23944c8c49b542b18f7e0fabd3e15, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 4539
+  - m_RefCount: 4538
     m_Data: {fileID: 6486653025020186400, guid: 98665291023702746ad7d3d82ad01c35,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 4539
+  - m_RefCount: 4538
     m_Data:
       e00: 1
       e01: 0
@@ -41089,7 +41080,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 4539
+  - m_RefCount: 4538
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -41248,7 +41239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 47, y: 79}
+  m_AnchoredPosition: {x: 50, y: 95.399994}
   m_SizeDelta: {x: 97.28418, y: 90.54207}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &6854160
@@ -41738,7 +41729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.99997, y: 0}
+  m_AnchoredPosition: {x: -18, y: 0}
   m_SizeDelta: {x: -621.1856, y: -101.21161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55333449
@@ -41965,7 +41956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -251.99992, y: 71}
+  m_AnchoredPosition: {x: -242.00003, y: 93}
   m_SizeDelta: {x: 72, y: 84}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &90009205
@@ -43188,7 +43179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 182, y: 73}
+  m_AnchoredPosition: {x: 176, y: 95.399994}
   m_SizeDelta: {x: 97.28418, y: 90.54207}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &274448413
@@ -43646,8 +43637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.4, y: -82.6}
-  m_SizeDelta: {x: 352.32736, y: 34.536674}
+  m_AnchoredPosition: {x: -3.47, y: -93.27}
+  m_SizeDelta: {x: 354.18277, y: 55.8733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334301214
 MonoBehaviour:
@@ -43681,7 +43672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This item will stop the timer
+  m_Text: 'Freezes the timer and enemies for a few seconds
 
 '
 --- !u!222 &334301215
@@ -44372,7 +44363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000030517578, y: 83}
+  m_AnchoredPosition: {x: -2, y: 104}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &409571767
@@ -45390,7 +45381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200.07999, y: 0}
+  m_AnchoredPosition: {x: -200.08002, y: -11.631989}
   m_SizeDelta: {x: 200.08118, y: 85.78418}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &602353624
@@ -45490,7 +45481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -42.99997, y: 105}
+  m_AnchoredPosition: {x: -43, y: 105}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &651932671
@@ -45851,7 +45842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -157, y: 83}
+  m_AnchoredPosition: {x: -161.99997, y: 104}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &761158149
@@ -97016,9 +97007,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 214.55002}
-  m_SizeDelta: {x: 197.781, y: 61.700005}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000015259, y: 176.8}
+  m_SizeDelta: {x: 299.8256, y: 66.3384}
+  m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!114 &1070889466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97051,7 +97042,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Shop
+  m_Text: Bomb Shop
 --- !u!222 &1070889467
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -99537,7 +99528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -79.99985, y: 67}
+  m_AnchoredPosition: {x: -79.99997, y: 83}
   m_SizeDelta: {x: 55.359917, y: 54.979065}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1685801090
@@ -99843,7 +99834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -42.99997, y: 39}
+  m_AnchoredPosition: {x: -43, y: 39}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1756792320
@@ -100348,7 +100339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.743011, y: -21.908997}
+  m_AnchoredPosition: {x: -13.743042, y: -21.908997}
   m_SizeDelta: {x: -629.6991, y: -174.27805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885962490
@@ -101723,8 +101714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000071526, y: 73.6}
-  m_SizeDelta: {x: 129.45113, y: 36.350166}
+  m_AnchoredPosition: {x: -0.000017166, y: 84.7}
+  m_SizeDelta: {x: 191.60558, y: 67.891205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133046807
 MonoBehaviour:
@@ -101758,7 +101749,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'coin: 3'
+  m_Text: 'Freeze Bomb:
+
+    3 coins'
 --- !u!222 &2133046808
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -102155,7 +102148,7 @@ PrefabInstance:
     - target: {fileID: 9130122859368364666, guid: f85d07a4a2a98fe4ea558068b9743231,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -54.524
+      value: -54.524002
       objectReference: {fileID: 0}
     - target: {fileID: 9130122859368364666, guid: f85d07a4a2a98fe4ea558068b9743231,
         type: 3}
