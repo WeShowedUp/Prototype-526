@@ -16,5 +16,16 @@ public class Shop : MonoBehaviour
         Time.timeScale = 1;
         shop.SetActive(false);
         warning.SetActive(false);
+        enemy1.E1pause = true;
+        EnemyBat.EBpause = true;
+        StartCoroutine(freezeEnemy(2.0f));
+    }
+    IEnumerator freezeEnemy(float time)
+    {
+
+        yield return new WaitForSeconds(time);
+        enemy1.E1pause = false;
+        EnemyBat.EBpause = false;
+        Debug.Log("UNFREEZE");
     }
 }
