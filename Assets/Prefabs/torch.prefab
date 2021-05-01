@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Torch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1633124547073996511
 Transform:
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505ea2da0ef26c644bd66e6a6336ccbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TorchAudio: {fileID: 8300000, guid: 8d2d9eaa01c768f4c93ea97b646feae0, type: 3}
 --- !u!1001 &1633124546257198299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1633124547073996511}
     m_Modifications:
+    - target: {fileID: 6260257713349492930, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6260257713384364067, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,6 +204,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260257713384364076, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260257713768821717, guid: 88a815992d89e1345aa0acbc6c4a5ffc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88a815992d89e1345aa0acbc6c4a5ffc, type: 3}

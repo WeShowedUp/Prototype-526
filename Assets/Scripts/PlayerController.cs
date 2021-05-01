@@ -45,7 +45,11 @@ public class PlayerController : MonoBehaviour
     //Animator
     private Vector2 lookDirection = new Vector2(1, 0);
     private Animator anim;
-    
+
+    //audio
+    public AudioClip dashAudio;
+    public AudioClip bombAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,12 +122,14 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                
                 Analytics.CustomEvent("Dash");
                 isDash = true;
             }
             if (Input.GetKeyDown(KeyCode.Q) && pauseCooldown <= 0 &&BUY.freezebombCount > 0)
             {
-               // Debug.Log(GameStatus.coinCount);
+                // Debug.Log(GameStatus.coinCount);
+                AudioSource.PlayClipAtPoint(bombAudio, transform.position, 100.0f);
                 enemy1.E1pause = true;
                 EnemyBat.EBpause = true;
                 StartCoroutine(freezeEnemy(3.0f));
@@ -187,6 +193,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (dashCooldown < 0)
                 {
+                    AudioSource.PlayClipAtPoint(dashAudio, transform.position, 100.0f);
                     dashCooldown = DASH_COOLDOWN_MAX;
                     myRB.MovePosition(transform.position + lastMove * dashAmount);
 

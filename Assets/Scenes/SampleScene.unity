@@ -41729,7 +41729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18, y: 0}
+  m_AnchoredPosition: {x: -17.99997, y: 0}
   m_SizeDelta: {x: -621.1856, y: -101.21161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55333449
@@ -97535,6 +97535,8 @@ MonoBehaviour:
   pauseCooldownMask: {fileID: 1927089364}
   E1: {fileID: 8679978952327853008, guid: aee2ce81b73cea640b1a78bc7b0dc9a0, type: 3}
   speed: 5
+  dashAudio: {fileID: 8300000, guid: fe4c8c37c9b6f48449de11bf890f70f4, type: 3}
+  bombAudio: {fileID: 8300000, guid: 1e5d5403ce82ba44d800a167c604dc0e, type: 3}
 --- !u!50 &1153835484
 Rigidbody2D:
   serializedVersion: 4
@@ -100386,7 +100388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.743042, y: -21.908997}
+  m_AnchoredPosition: {x: -13.743011, y: -21.908997}
   m_SizeDelta: {x: -629.6991, y: -174.27805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885962490
