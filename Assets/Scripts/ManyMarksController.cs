@@ -7,7 +7,7 @@ public class ManyMarksController : MonoBehaviour
     public string targetTag = "star";
     public GameObject targetPrefab;
     private GameObject[] targets;
-    private bool hasTarget = false;
+    public bool hasTarget = false;
     private bool hasCreated = false;
     private void Update()
     {
@@ -16,7 +16,12 @@ public class ManyMarksController : MonoBehaviour
             targets = GameObject.FindGameObjectsWithTag(targetTag);
             hasCreated = false;
         }
-        if (targets.Length != 0)
+        bool flag = false;
+        foreach(GameObject it in targets)
+        {
+            flag = flag || (it != null);
+        }
+        if (flag)
         {
             hasTarget = true;
             if (!hasCreated)
